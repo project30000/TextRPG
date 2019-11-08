@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 // Route requires
 const user = require('./routes/user')
+const api = require('./routes/api')
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -43,6 +44,7 @@ app.use(passport.session()) // calls the deserializeUser
 
 // Routes
 app.use('/user', user)
+app.use('/api', api)
 
 // Starting Server 
 app.listen(PORT, () => {
