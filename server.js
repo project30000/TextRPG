@@ -1,16 +1,16 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const morgan = require('morgan')
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const mongoose = require('mongoose');
-const session = require('express-session')
-const dbConnection = require('./connection')
-const MongoStore = require('connect-mongo')(session)
+const session = require('express-session');
+const dbConnection = require('./connection');
+const MongoStore = require('connect-mongo')(session);
 const passport = require('./passport');
 const app = express();
 const PORT = process.env.PORT || 8080;
 // Route requires
 const user = require('./routes/user')
-const api = require('./routes/api')
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -41,10 +41,14 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
-
+app.use(express.static(path.join(__dirname, "client", "build")))
 // Routes
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 app.use('/user', user)
-app.use('/api', api)
+
+
 
 // Starting Server 
 app.listen(PORT, () => {
