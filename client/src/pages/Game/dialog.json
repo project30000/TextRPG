@@ -1,0 +1,19 @@
+{
+    "dialog": [
+        {
+        "id": 1,
+        "text": "Hey, are you a nice dude?",
+        "options": [
+                {
+                "text": "Yes sir. What is the matter?",
+                "nextText": 3
+                },
+                {
+                "text": "F* U!",
+                "nextText": 2
+                }
+            ]
+        }
+    ]
+}
+    
