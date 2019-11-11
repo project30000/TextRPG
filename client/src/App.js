@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 import Signup from './components/sign-up'
 import LoginForm from './components/login-form'
 import Navbar from './components/navbar'
-import Home from './components/home'
+import Game from './components/Game'
 
 class App extends Component {
   constructor() {
@@ -62,7 +62,7 @@ class App extends Component {
         {/* Routes to different components */}
         <Route
           exact path="/"
-          component={Home} />
+          component={Game} />
         <Route
           path="/login"
           render={() =>
