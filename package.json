@@ -10,7 +10,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "node scripts/seed.js"
   },
   "keywords": [
     "mern",
@@ -29,11 +30,11 @@
     "connect-mongo": "^3.1.2",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
+    "if-env": "^1.0.4",
     "mongoose": "^5.7.8",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "spectre.css": "^0.5.8"
-  },
-  "proxy": "http://localhost:3000"
+  }
 }
