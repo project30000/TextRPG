@@ -3,47 +3,7 @@ import API from '../../utils/API';
 import Typist from 'react-typist';
 import 'react-typist/dist/Typist.css';
 import './style.css';
-
-
-const textElement = document.getElementById('text');
-const optionButtonsElement = document.getElementById('option_buttons');
-
-// const textNodes = "";
-
-
-// const showTextNode = (textNodeIndex) => {
-//     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-//     textElement.innerText = textNode.text
-//     while (optionButtonsElement.firstChild) {
-//         optionButtonsElement.removeChild(optionButtonsElement.firstChild)
-//     }
-
-//     textNode.options.forEach(option => {
-//         if (showOption(option)) {
-//             const button = document.createElement('button')
-//             button.innerText = option.text
-//             button.classList.add('btn')
-//             button.addEventListener('click', () => selectOption(option))
-//             optionButtonsElement.appendChild(button)
-//         }
-//     })
-// }
-// const showOption = (option) => {
-//     return option.requiredState == null
-// }
-
-// const selectOption = (option) => {
-//     const nextTextNodeId = option.nextText
-//     if (nextTextNodeId <= 0) {
-//         return startGame()
-//     }
-//     showTextNode(nextTextNodeId)
-// }
-
-// const startGame = () => {
-//     showTextNode(1)
-// }
-
+import dialog from './dialog.json';
 
 class Game extends Component {
     state = {
@@ -60,8 +20,47 @@ class Game extends Component {
     }
 
     render() {
-        const imageStyle = {
-            width: 400
+        // const imageStyle = {
+        //     width: 400
+        // }
+
+        const textElement = document.getElementById('text');
+        const optionButtonsElement = document.getElementById('optionButtons');
+
+        const textNodes = dialog;
+
+        const showTextNode = (textNodeIndex) => {
+            const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+            textElement.innerText = textNode.text
+            while (optionButtonsElement.firstChild) {
+                optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+            }
+
+            textNode.options.forEach(option => {
+                if (showOption(option)) {
+                    const button = document.createElement('button')
+                    button.innerText = option.text
+                    button.classList.add('btn')
+                    button.addEventListener('click', () => selectOption(option))
+                    optionButtonsElement.appendChild(button)
+                }
+            })
+        }
+
+        const showOption = (option) => {
+            return option.requiredState == null
+        }
+
+        const selectOption = (option) => {
+            const nextTextNodeId = option.nextText
+            if (nextTextNodeId <= 0) {
+                return startGame()
+            }
+            showTextNode(nextTextNodeId)
+        }
+
+        const startGame = () => {
+            showTextNode(1)
         }
 
         return (
@@ -69,21 +68,22 @@ class Game extends Component {
                 <br />
                 <br />
 
-                <div class="container">
+                <div className="container">
+                    {console.log(textNodes)}
                     <Typist>
-                        <p> You're awake. </p>
+                        <p id="text"> You're awake. </p>
                         <Typist.Delay ms={1000} />
 
                         You must have been asleep for weeks.
 
                     </Typist>
                     <br />
-                    <div id="option-buttons" class="btn-grid">
-                        <button class="btn">Option 1</button>
-                        <button class="btn">Option 2</button>
+                    <div id="optionButtons" className="btn-grid">
+                        <button className="btn">Option 1</button>
+                        <button className="btn">Option 2</button>
                         <br />
-                        <button class="btn">Option 3</button>
-                        <button class="btn">Option 4</button>
+                        <button className="btn">Option 3</button>
+                        <button className="btn">Option 4</button>
                     </div>
                 </div>
             </div>
