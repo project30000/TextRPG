@@ -6,11 +6,11 @@
         "options": [
                 {
                 "text": "Yes sir. What is the matter?",
-                "nextText": 3
+                "nextText": 2
                 },
                 {
-                "text": "F* U!",
-                "nextText": 2
+                "text": "Screw You! <draw weapon>",
+                "nextText": 3
                 }
             ]
         }
