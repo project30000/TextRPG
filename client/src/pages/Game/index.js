@@ -1,14 +1,53 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
+import Typist from 'react-typist';
+import 'react-typist/dist/Typist.css';
+import './style.css';
+
 
 const textElement = document.getElementById('text');
 const optionButtonsElement = document.getElementById('option_buttons');
 
+// const textNodes = "";
+
+
+// const showTextNode = (textNodeIndex) => {
+//     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+//     textElement.innerText = textNode.text
+//     while (optionButtonsElement.firstChild) {
+//         optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+//     }
+
+//     textNode.options.forEach(option => {
+//         if (showOption(option)) {
+//             const button = document.createElement('button')
+//             button.innerText = option.text
+//             button.classList.add('btn')
+//             button.addEventListener('click', () => selectOption(option))
+//             optionButtonsElement.appendChild(button)
+//         }
+//     })
+// }
+// const showOption = (option) => {
+//     return option.requiredState == null
+// }
+
+// const selectOption = (option) => {
+//     const nextTextNodeId = option.nextText
+//     if (nextTextNodeId <= 0) {
+//         return startGame()
+//     }
+//     showTextNode(nextTextNodeId)
+// }
+
+// const startGame = () => {
+//     showTextNode(1)
+// }
 
 
 class Game extends Component {
     state = {
-        dude: false
+        dude: ""
     }
 
     componentDidMount() {
@@ -17,40 +56,7 @@ class Game extends Component {
                 dude: myDude
             })
         })
-        this.startGame();
-    }
-
-    showTextNode = (textNodeIndex) => {
-        const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-        textElement.innerText = textNode.text
-        while (optionButtonsElement.firstChild) {
-            optionButtonsElement.removeChild(optionButtonsElement.firstChild)
-        }
-
-        textNode.options.forEach(option => {
-            if (showOption(option)) {
-                const button = document.createElement('button')
-                button.innerText = option.text
-                button.classList.add('btn')
-                button.addEventListener('click', () => selectOption(option))
-                optionButtonsElement.appendChild(button)
-            }
-        })
-    }
-    showOption = (option) => {
-        return option.requiredState == null
-    }
-
-    selectOption = (option) => {
-        const nextTextNodeId = option.nextText
-        if (nextTextNodeId <= 0) {
-            return startGame()
-        }
-        showTextNode(nextTextNodeId)
-    }
-
-    startGame = () => {
-        showTextNode(1)
+        // this.startGame();
     }
 
     render() {
@@ -60,11 +66,22 @@ class Game extends Component {
 
         return (
             <div>
+                <br />
+                <br />
+
                 <div class="container">
-                    <div id="text">Text</div>
+                    <Typist>
+                        <p> You're awake. </p>
+                        <Typist.Delay ms={1000} />
+
+                        You must have been asleep for weeks.
+
+                    </Typist>
+                    <br />
                     <div id="option-buttons" class="btn-grid">
                         <button class="btn">Option 1</button>
                         <button class="btn">Option 2</button>
+                        <br />
                         <button class="btn">Option 3</button>
                         <button class="btn">Option 4</button>
                     </div>
