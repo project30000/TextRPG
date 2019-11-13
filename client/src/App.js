@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 import Signup from './pages/sign-up'
 import LoginForm from './pages/login-form'
 import Navbar from './pages/navbar'
-import Home from './pages/home'
+import Game from './pages/Game'
 
 class App extends Component {
   constructor() {
@@ -53,15 +53,22 @@ class App extends Component {
 
   // on submit --> initializing game 
   submitCharacter() {
-    //state is current user's username
+    //state is current user's username 
+    this.setState({
+      loggedIn: true,
+      username: this.state.username,
+      userId: this.state.userId,
+      killCount: 0,
+      character: "test", // from forum 
+    })
 
     //first post to database, attaching the logged-in account/state username with it 
-    axios.post('/create/' + this.state.userId, {
+    axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
       name: "test" , //grab value from form // ,
     })
+
     var characterDataId;
-    
-    axios.get('/api/characters/'+ this.state.character  ).then(response => {
+    axios.get('/characters/'+ this.state.userId + "/" + this.state.character ).then(response => {
       characterDataId = response.data._id
     })
 
@@ -98,7 +105,7 @@ class App extends Component {
     var killCount = this.state.killCount
     var id = this.state.userId
 
-    axios.put('api/characters/'+ id + "/" + this.state.characterId + "/" + killCount)
+    axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
   }
 
 

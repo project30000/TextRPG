@@ -55,7 +55,15 @@ app.get("/characters", (req, res) => {
 app.get("/characters/:id", (req, res) => {
     db.Character
         .findById({ _id: req.params.id })
-        .then(dbModel => console.log(dbModel))
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+})
+
+//find character by looking at user id and character name
+app.get("/characters/:id/:name", (req, res) => {
+    db.Character
+        .findOne({ user_id: req.params.id }, {name: req.params.name })
+        .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 })
 
