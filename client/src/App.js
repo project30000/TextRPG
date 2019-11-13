@@ -40,7 +40,8 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          username: response.data.user.username,
+          userId: response.data.user.id
         })
       } else {
         console.log('Get user: no user');
@@ -52,38 +53,102 @@ class App extends Component {
     })
   }
 
-  render() {
-    return (
-      <div className="App">
+  // on submit --> initializing game 
+  submitCharacter() {
+    //state is current user's username 
+    this.setState({
+      loggedIn: true,
+      username: this.state.username,
+      userId: this.state.userId,
+      killCount: 0,
+      character: "test", // from forum 
+    })
 
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        {/* greet user if logged in: */}
-        {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
-        }
-        {/* Routes to different components */}
-        <Route
-          exact path="/"
-          component={Home} />
-        <Route
-          exact path="/game"
-          component={Game} />
-        <Route
-          path="/login"
-          render={() =>
-            <LoginForm
-              updateUser={this.updateUser}
-            />}
-        />
-        <Route
-          path="/signup"
-          render={() =>
-            <Signup />}
-        />
+    //first post to database, attaching the logged-in account/state username with it 
+    axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
+      name: "test" , //grab value from form // ,
+    })
 
-      </div>
-    );
+    var characterDataId;
+    axios.get('/characters/'+ this.state.userId + "/" + this.state.character ).then(response => {
+      characterDataId = response.data._id
+    })
+
+      
+      
+    // update state to include a killcount of zero 
+    this.setState({
+      loggedIn: true,
+      username: this.state.username,
+      userId: this.state.userId,
+      killCount: 0,
+      character: "test", // from forum 
+      characterId: characterDataId,
+    })
+
   }
-}
 
-export default App;
+  //incrementing deathKill
+  incrementDeath() {
+    //just add one to killcount
+    this.setState({
+      loggedIn: true,
+      username: this.state.username,
+      userId: this.state.userId,
+      killCount: this.state.killCount + 1,
+      character: this.state.character,
+      characterId: this.state.characterId,
+    })
+
+  }
+
+  //posting deathcount into scores
+  postingDeathCount() {
+    var killCount = this.state.killCount
+    var id = this.state.userId
+
+    axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
+  }
+
+
+
+
+    render() {
+      return (
+        <div className="App">
+
+          <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+          {/* greet user if logged in: */}
+          {this.state.loggedIn &&
+            <p>Join the party, {this.state.username}!</p>
+          }
+          {/* Routes to different components */}
+          <Route
+            exact path="/"
+            component={Home} />
+          <Route
+            path="/login"
+            render={() =>
+              <LoginForm
+                updateUser={this.updateUser}
+              />}
+          />
+          <Route
+            path="/signup"
+            render={() =>
+              <Signup />}
+          />
+          {/* <Route
+          path="/game"
+          render={() =>
+            <Game />}
+        /> */}
+
+        </div>
+      );
+    }
+  }
+
+
+
+  export default App;
