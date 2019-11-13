@@ -6,6 +6,8 @@ import Signup from './pages/sign-up'
 import LoginForm from './pages/login-form'
 import Navbar from './pages/navbar'
 import Game from './pages/Game'
+import Home from './pages/Home'
+
 
 class App extends Component {
   constructor() {
