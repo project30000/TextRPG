@@ -9,14 +9,17 @@ import Text from '../../components/Text';
 class Game extends Component {
     state = {
         dude: "", //user logged in
-        data: dialog,
-        curOptions: dialog[0]
+        currentLine: dialog[0]
     }
 
-    handleClick() {
-        alert('Click happened');
+
+    handleClick = () => {
+        alert('Your next Line is: ' + this.id);
+        console.log(dialog[0]);
+        // console.log(this.state.data);
+        
         this.setState({
-            curOptions: dialog[1]
+            currentLine: dialog[this.id]
         })
     };
 
@@ -42,18 +45,19 @@ class Game extends Component {
                 <br />
                 <br />
                 {/* {console.log(textNodes[0])} */}
-                < Text text={this.state.curOptions.text} />
+                < Text text={this.state.currentLine.text} />
+
+            
                 <br />
                 < div >
                     {
-                        this.state.curOptions.options.map(option => (
-                            console.log(option),
-                            <span onClick={this.handleClick.bind(this)}>
+                        this.state.currentLine.options.map(option => (
+                            // console.log(option.nextText),
                             < Button
                                 option={option.text}
-                                id={option.id}
+                                id={option.nextText}
+                                handleClick={this.handleClick}
                             />
-                            </span>
                             ))
                     }
                 </div >
