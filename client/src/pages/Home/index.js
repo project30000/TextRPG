@@ -9,7 +9,7 @@ class Home extends Component {
         }
         return (
             <div>
-                <p>It's good to be home</p>
+                <p>Where is our damn splash page</p>
                 <img style={imageStyle} alt="home" src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" />
             </div>
         )

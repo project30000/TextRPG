@@ -62,6 +62,9 @@ class App extends Component {
         {/* Routes to different components */}
         <Route
           exact path="/"
+          component={Home} />
+        <Route
+          exact path="/game"
           component={Game} />
         <Route
           path="/login"
