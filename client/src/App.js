@@ -74,8 +74,6 @@ class App extends Component {
       characterDataId = response.data._id
     })
 
-
-
     // update state to include a killcount of zero 
     this.setState({
       loggedIn: true,
@@ -106,8 +104,9 @@ class App extends Component {
   postingDeathCount() {
     var killCount = this.state.killCount
     var id = this.state.userId
+    
+    axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
 
-    axios.put('characters/' + id + "/" + this.state.character + "/" + killCount)
   }
 
 
@@ -143,12 +142,12 @@ class App extends Component {
           render={() =>
             <Game />}
         />
-
-      </div>
-    );
+        </div>
+      );
+    }
   }
-}
 
 
 
-export default App;
+
+  export default App;
