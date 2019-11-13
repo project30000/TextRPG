@@ -34,5 +34,23 @@
                     "nextText": 3
                 }
             ]
+        },
+        {
+            "id": 3,
+            "text": "Question 3",
+            "options": [
+                {
+                    "text": "Text option 1",
+                    "nextText": 3
+                },
+                {
+                    "text": "Text option 2",
+                    "nextText": 3
+                },
+                {
+                    "text": "Text option 3",
+                    "nextText": 3
+                }
+            ]
         }
     ]

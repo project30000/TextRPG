@@ -66,16 +66,14 @@ class App extends Component {
 
     //first post to database, attaching the logged-in account/state username with it 
     axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
-      name: "test" , //grab value from form // ,
+      name: "test", //grab value from form // ,
     })
 
     var characterDataId;
-    axios.get('/characters/'+ this.state.userId + "/" + this.state.character ).then(response => {
+    axios.get('/characters/' + this.state.userId + "/" + this.state.character).then(response => {
       characterDataId = response.data._id
     })
 
-      
-      
     // update state to include a killcount of zero 
     this.setState({
       loggedIn: true,
@@ -106,48 +104,49 @@ class App extends Component {
   postingDeathCount() {
     var killCount = this.state.killCount
     var id = this.state.userId
-
+    
     axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
+
   }
 
 
 
 
-    render() {
-      return (
-        <div className="App">
+  render() {
+    return (
+      <div className="App">
 
-          <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-          {/* greet user if logged in: */}
-          {this.state.loggedIn &&
-            <p>Join the party, {this.state.username}!</p>
-          }
-          {/* Routes to different components */}
-          <Route
-            exact path="/"
-            component={Home} />
-          <Route
-            path="/login"
-            render={() =>
-              <LoginForm
-                updateUser={this.updateUser}
-              />}
-          />
-          <Route
-            path="/signup"
-            render={() =>
-              <Signup />}
-          />
-          {/* <Route
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        {/* greet user if logged in: */}
+        {this.state.loggedIn &&
+          <p>Join the party, {this.state.username}!</p>
+        }
+        {/* Routes to different components */}
+        <Route
+          exact path="/"
+          component={Home} />
+        <Route
+          path="/login"
+          render={() =>
+            <LoginForm
+              updateUser={this.updateUser}
+            />}
+        />
+        <Route
+          path="/signup"
+          render={() =>
+            <Signup />}
+        />
+        <Route
           path="/game"
           render={() =>
             <Game />}
-        /> */}
-
+        />
         </div>
       );
     }
   }
+
 
 
 
