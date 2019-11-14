@@ -103,8 +103,8 @@ class App extends Component {
   postingDeathCount() {
     var killCount = this.state.killCount
     var id = this.state.userId
-    
-    axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
+
+    axios.put('characters/' + id + "/" + this.state.character + "/" + killCount)
 
   }
 
@@ -139,14 +139,18 @@ class App extends Component {
         <Route
           path="/game"
           render={() =>
-            <Game />}
+            <Game
+              killCount={this.state.killCount}
+              incrementDeath={this.incrementDeath}
+              data={this.state}
+            />}
         />
-        </div>
-      );
-    }
+      </div>
+    );
   }
+}
 
 
 
 
-  export default App;
+export default App;

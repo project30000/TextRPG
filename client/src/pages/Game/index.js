@@ -9,7 +9,7 @@ class Game extends Component {
     state = {
         userID: "", //user logged in
         dialog: dialog,
-        currentLine: dialog[0]
+        currentLine: dialog[0] //game init at first line
     }
 
     handleClick=(nextText)=>{
@@ -34,6 +34,7 @@ class Game extends Component {
 
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <br />
@@ -42,7 +43,8 @@ class Game extends Component {
                 <br />
                
                     {this.state.currentLine.options.map(option => (
-                        console.log(option.nextText),
+                        // console.log(option.nextText)
+                        // if (option.killcount > this.state.killCount)
                         < Button
                             option={option.text}
                             nextText={option.nextText}
