@@ -12,7 +12,11 @@ class Game extends Component {
         currentLine: dialog[0] //game init at first line
     }
 
-    handleClick=(nextText)=>{
+    handleClick = (nextText,op) => {
+        if (op) {
+            this.props.incrementDeath(this.props.data.killCount);
+        }
+        
         // alert('Your next Line is: ' + nextText);
         this.setState({
             currentLine: dialog[nextText]
@@ -26,7 +30,7 @@ class Game extends Component {
                 userID: myDude
             })
         })
-        this.setState({currentLine:dialog[0]})
+        this.setState({ currentLine: dialog[0] })
         // console.log(this.state.currentLine.options)
         // console.log(dialog[0])
         // this.startGame();
@@ -34,24 +38,29 @@ class Game extends Component {
 
 
     render() {
-        console.log(this.props)
+        var nextOptions =this.state.currentLine.options.filter(e => e.killcount <= this.props.data.killCount)
         return (
             <div>
                 <br />
                 <br />
                 < Text text={this.state.currentLine.text} />
                 <br />
-               
-                    {this.state.currentLine.options.map(option => (
+                {
+                    
+                    console.log(nextOptions)
+                }
+                {
+                    nextOptions.map(option => (
                         // console.log(option.nextText)
                         // if (option.killcount > this.state.killCount)
                         < Button
                             option={option.text}
                             nextText={option.nextText}
-                            handleClick={this.handleClick.bind("click", option.nextText)}
+                            handleClick={this.handleClick.bind("click", option.nextText, option.kill)}
                         />
-                    ))}
-                
+                    ))
+                    }
+
             </div >
         )
     }

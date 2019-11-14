@@ -6,7 +6,7 @@
                 {
                     "text": "No Kill",
                     "nextText": 1,
-                    "showOption": 0
+                    "killcount": 0
                 },
                 {
                     "text": "Kill",

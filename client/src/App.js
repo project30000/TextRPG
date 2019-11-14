@@ -12,14 +12,26 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      loggedIn: false,
-      username: null
+      loggedIn: true,
+      username: "poop",
+      userId: "5dca461355fad0bd7116f38a",
+      killCount: 0,
+      character: "weenie", // from forum 
+      characterId: "5dcca7d49f58d5eace050256"
     }
-
-    this.getUser = this.getUser.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.updateUser = this.updateUser.bind(this)
   }
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     loggedIn: false,
+  //     username: null
+  //   }
+
+  //   this.getUser = this.getUser.bind(this)
+  //   this.componentDidMount = this.componentDidMount.bind(this)
+  //   this.updateUser = this.updateUser.bind(this)
+  // }
+
 
   componentDidMount() {
     this.getUser()
@@ -56,9 +68,6 @@ class App extends Component {
   submitCharacter() {
     //state is current user's username 
     this.setState({
-      loggedIn: true,
-      username: this.state.username,
-      userId: this.state.userId,
       killCount: 0,
       character: "test", // from forum 
     })
@@ -66,37 +75,30 @@ class App extends Component {
     //first post to database, attaching the logged-in account/state username with it 
     axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
       name: "test", //grab value from form // ,
-    })
+    }).then(
+      data => {
+        var characterDataId;
+        axios.get('/characters/' + this.state.userId + "/" + this.state.character).then(response => {
+          characterDataId = response.data._id
+          this.setState({
+            characterId: characterDataId,
+          })
+        })
 
-    var characterDataId;
-    axios.get('/characters/' + this.state.userId + "/" + this.state.character).then(response => {
-      characterDataId = response.data._id
-    })
-
-    // update state to include a killcount of zero 
-    this.setState({
-      loggedIn: true,
-      username: this.state.username,
-      userId: this.state.userId,
-      killCount: 0,
-      character: "test", // from forum 
-      characterId: characterDataId,
-    })
+      })
 
   }
 
   //incrementing deathKill
-  incrementDeath() {
+  incrementDeath=(killCount)=> {
+    console.log(killCount);
+
+    killCount +=1
+    console.log(killCount);
     //just add one to killcount
     this.setState({
-      loggedIn: true,
-      username: this.state.username,
-      userId: this.state.userId,
-      killCount: this.state.killCount + 1,
-      character: this.state.character,
-      characterId: this.state.characterId,
+      killCount: killCount,
     })
-
   }
 
   //posting deathcount into scores
@@ -115,11 +117,11 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
         {/* greet user if logged in: */}
-        {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
-        }
+        {/* {this.state.loggedIn &&
+          <p>Join the party, {this.state.username}!</p> */}
+
         {/* Routes to different components */}
         <Route
           exact path="/"
@@ -140,7 +142,7 @@ class App extends Component {
           path="/game"
           render={() =>
             <Game
-              killCount={this.state.killCount}
+
               incrementDeath={this.incrementDeath}
               data={this.state}
             />}
