@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
-import Typist from 'react-typist';
-import 'react-typist/dist/Typist.css';
 import './style.css';
 import dialog from './dialog.json';
 import Button from '../../components/Button';
@@ -12,10 +10,7 @@ import videoGame from "../../assets/videoGame.wav"
 class Game extends Component {
     state = {
         dude: "", //user logged in
-        data: dialog,
-        curOptions: dialog[1]
-        
-
+        currentLine: dialog[0]
     }
         //sound during game
     render() {
@@ -31,10 +26,15 @@ class Game extends Component {
         );
       }
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        console.log("Button clicked!");
-        console.log(document.getElementById('optionButtons').value);
+
+    handleClick = () => {
+        alert('Your next Line is: ' + this.id);
+        console.log(dialog[0]);
+        // console.log(this.state.data);
+        
+        this.setState({
+            currentLine: dialog[this.id]
+        })
     };
 
     componentDidMount() {
@@ -43,68 +43,36 @@ class Game extends Component {
                 dude: myDude
             })
         })
-
         // this.startGame();
     }
 
 
-    // const imageStyle = {
-    //     width: 400
-    // }
-
     render() {
-        const textNodes = dialog;
+        // const textNodes = dialog;
 
+        // const showTextNode = (textNodeIndex) => {
+        //     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)}
 
-
-        const showTextNode = (textNodeIndex) => {
-            const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-            // textElement.innerText = textNode.text
-            // while (optionButtonsElement.firstChild) {
-            //     optionButtonsElement.removeChild(optionButtonsElement.firstChild)
-            // }
-            // this.state.setState({ curOptions: textNode.options })
-        }
-
-        // const showOption = (option) => {
-        //     return option.requiredState == null
-        // }
-
-        // const selectOption = (option) => {
-        //     const nextTextNodeId = option.nextText
-        //     if (nextTextNodeId <= 0) {
-        //         // return startGame()
-        //     }
-        //     showTextNode(nextTextNodeId)
-        // }
-
-        // const startGame = () => {
-        //     showTextNode(1)
-        // }
 
         return (
             <div>
                 <br />
                 <br />
-
                 {/* {console.log(textNodes[0])} */}
+                < Text text={this.state.currentLine.text} />
 
-
-
-                < Text
-                    text={this.state.curOptions.text}
-                />
-
-
-            <br />
-                {console.log("Check: " + this.state.curOptions)}
+            
+                <br />
                 < div >
                     {
-                        this.state.curOptions.options.map(option => (
+                        this.state.currentLine.options.map(option => (
+                            // console.log(option.nextText),
                             < Button
-                                onClick={this.handleFormSubmit}
                                 option={option.text}
-                            />))
+                                id={option.nextText}
+                                handleClick={this.handleClick}
+                            />
+                            ))
                     }
                 </div >
             </div >
