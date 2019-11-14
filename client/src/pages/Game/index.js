@@ -9,20 +9,6 @@ import Text from '../../components/Text';
 
 class Game extends Component {
     state = {
-<<<<<<< HEAD
-        dude: "", //user logged in
-        data: dialog,
-        curOptions: dialog[1]
-        
-
-    }
-
-    handleFormSubmit = event => {
-        event.preventDefault();
-        console.log("Button clicked!");
-        console.log(document.getElementById('optionButtons').value);
-    };
-=======
         userID: "", //user logged in
         dialog: dialog,
         currentLine: dialog[0]
@@ -35,7 +21,6 @@ class Game extends Component {
         })
         console.log(this.state.currentLine);
     }
->>>>>>> 3c05e456d10fc34bca57da741580679968dca416
 
     componentDidMount() {
         API.getMyDude(this.props.username).then(myDude => {
@@ -43,13 +28,9 @@ class Game extends Component {
                 userID: myDude
             })
         })
-<<<<<<< HEAD
-
-=======
         this.setState({currentLine:dialog[0]})
         // console.log(this.state.currentLine.options)
         // console.log(dialog[0])
->>>>>>> 3c05e456d10fc34bca57da741580679968dca416
         // this.startGame();
     }
 
@@ -59,65 +40,10 @@ class Game extends Component {
     // }
 
     render() {
-<<<<<<< HEAD
-        const textNodes = dialog;
-
-
-
-        const showTextNode = (textNodeIndex) => {
-            const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-            // textElement.innerText = textNode.text
-            // while (optionButtonsElement.firstChild) {
-            //     optionButtonsElement.removeChild(optionButtonsElement.firstChild)
-            // }
-            // this.state.setState({ curOptions: textNode.options })
-        }
-
-        // const showOption = (option) => {
-        //     return option.requiredState == null
-        // }
-
-        // const selectOption = (option) => {
-        //     const nextTextNodeId = option.nextText
-        //     if (nextTextNodeId <= 0) {
-        //         // return startGame()
-        //     }
-        //     showTextNode(nextTextNodeId)
-        // }
-
-        // const startGame = () => {
-        //     showTextNode(1)
-        // }
-
-=======
->>>>>>> 3c05e456d10fc34bca57da741580679968dca416
         return (
             <div>
                 <br />
                 <br />
-<<<<<<< HEAD
-
-                {/* {console.log(textNodes[0])} */}
-
-
-
-                < Text
-                    text={this.state.curOptions.text}
-                />
-
-
-            <br />
-                {console.log("Check: " + this.state.curOptions)}
-                < div >
-                    {
-                        this.state.curOptions.options.map(option => (
-                            < Button
-                                onClick={this.handleFormSubmit}
-                                option={option.text}
-                            />))
-                    }
-                </div >
-=======
                 < Text text={this.state.currentLine.text} />
                 <br />
                
@@ -130,7 +56,6 @@ class Game extends Component {
                         />
                     ))}
                 
->>>>>>> 3c05e456d10fc34bca57da741580679968dca416
             </div >
         )
     }

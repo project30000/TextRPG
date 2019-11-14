@@ -18,11 +18,7 @@
             "text": "You clicked Apples.",
             "options": [
                 {
-<<<<<<< HEAD
-                    "text": "Text option",
-=======
                     "text": "Next",
->>>>>>> 3c05e456d10fc34bca57da741580679968dca416
                     "nextText": 3
                 },
                 {
@@ -38,8 +34,6 @@
                     "nextText": 2
                 }
             ]
-<<<<<<< HEAD
-=======
         },
         {
             "id": 2,
@@ -72,7 +66,6 @@
                     "nextText": 4
                 }
             ]
->>>>>>> 3c05e456d10fc34bca57da741580679968dca416
         }
 
     ]
