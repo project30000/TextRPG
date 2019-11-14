@@ -7,9 +7,9 @@ import dialog from './dialog.json';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
 
-
 class Game extends Component {
     state = {
+<<<<<<< HEAD
         dude: "", //user logged in
         data: dialog,
         curOptions: dialog[1]
@@ -22,14 +22,34 @@ class Game extends Component {
         console.log("Button clicked!");
         console.log(document.getElementById('optionButtons').value);
     };
+=======
+        userID: "", //user logged in
+        dialog: dialog,
+        currentLine: dialog[0]
+    }
+
+    handleClick=(nextText)=>{
+        // alert('Your next Line is: ' + nextText);
+        this.setState({
+            currentLine: dialog[nextText]
+        })
+        console.log(this.state.currentLine);
+    }
+>>>>>>> 3c05e456d10fc34bca57da741580679968dca416
 
     componentDidMount() {
         API.getMyDude(this.props.username).then(myDude => {
             this.setState({
-                dude: myDude
+                userID: myDude
             })
         })
+<<<<<<< HEAD
 
+=======
+        this.setState({currentLine:dialog[0]})
+        // console.log(this.state.currentLine.options)
+        // console.log(dialog[0])
+>>>>>>> 3c05e456d10fc34bca57da741580679968dca416
         // this.startGame();
     }
 
@@ -39,6 +59,7 @@ class Game extends Component {
     // }
 
     render() {
+<<<<<<< HEAD
         const textNodes = dialog;
 
 
@@ -68,10 +89,13 @@ class Game extends Component {
         //     showTextNode(1)
         // }
 
+=======
+>>>>>>> 3c05e456d10fc34bca57da741580679968dca416
         return (
             <div>
                 <br />
                 <br />
+<<<<<<< HEAD
 
                 {/* {console.log(textNodes[0])} */}
 
@@ -93,9 +117,22 @@ class Game extends Component {
                             />))
                     }
                 </div >
+=======
+                < Text text={this.state.currentLine.text} />
+                <br />
+               
+                    {this.state.currentLine.options.map(option => (
+                        console.log(option.nextText),
+                        < Button
+                            option={option.text}
+                            nextText={option.nextText}
+                            handleClick={this.handleClick.bind("click", option.nextText)}
+                        />
+                    ))}
+                
+>>>>>>> 3c05e456d10fc34bca57da741580679968dca416
             </div >
         )
-
     }
 }
 

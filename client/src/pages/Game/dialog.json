@@ -1,24 +1,52 @@
     [
         {
-            "id": 1,
+            "id": 0,
             "text": "You're finally awake. We thought you'd sleep forever.",
             "options": [
                 {
-                    "text": "Answer one",
-                    "nextText": 2
+                    "text": "Apples",
+                    "nextText": 1
                 },
                 {
-                    "text": "Answer two",
-                    "nextText": 3
+                    "text": "Bananas",
+                    "nextText": 2
                 }
             ]
         },
         {
-            "id": 2,
-            "text": "Question 2",
+            "id": 1,
+            "text": "You clicked Apples.",
             "options": [
                 {
+<<<<<<< HEAD
                     "text": "Text option",
+=======
+                    "text": "Next",
+>>>>>>> 3c05e456d10fc34bca57da741580679968dca416
+                    "nextText": 3
+                },
+                {
+                    "text": "Also Next",
+                    "nextText": 3
+                },
+                {
+                    "text": "This will restart the dialog",
+                    "nextText": 0
+                },
+                {
+                    "text": "This will show what happens when you hit Bananas",
+                    "nextText": 2
+                }
+            ]
+<<<<<<< HEAD
+=======
+        },
+        {
+            "id": 2,
+            "text": "You hit bananas",
+            "options": [
+                {
+                    "text": "Text option 1",
                     "nextText": 3
                 },
                 {
@@ -26,13 +54,25 @@
                     "nextText": 3
                 },
                 {
-                    "text": "Text option 3",
-                    "nextText": 3
-                },
-                {
-                    "text": "Text option 4",
-                    "nextText": 3
+                    "text": "Go to apples",
+                    "nextText": 1
                 }
             ]
+        },
+        {
+            "id": 3,
+            "text": "To be continued",
+            "options": [
+                {
+                    "text": "Restart",
+                    "nextText": 0
+                },
+                {
+                    "text": "Break yo shit",
+                    "nextText": 4
+                }
+            ]
+>>>>>>> 3c05e456d10fc34bca57da741580679968dca416
         }
+
     ]

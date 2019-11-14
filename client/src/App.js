@@ -150,4 +150,8 @@ class App extends Component {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c05e456d10fc34bca57da741580679968dca416
   export default App;
