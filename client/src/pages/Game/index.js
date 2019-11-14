@@ -6,7 +6,8 @@ import './style.css';
 import dialog from './dialog.json';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
-
+import Sound from 'react-sound';
+import videoGame from "../../assets/videoGame.wav"
 
 class Game extends Component {
     state = {
@@ -16,6 +17,19 @@ class Game extends Component {
         
 
     }
+        //sound during game
+    render() {
+        return (
+            
+          <Sound
+            url={videoGame}
+            playStatus={Sound.status.PLAYING}
+            //onLoading={this.handleSongLoading}
+            onPlaying={this.handleSongPlaying}
+            //onFinishedPlaying={this.handleSongFinishedPlaying}
+          />
+        );
+      }
 
     handleFormSubmit = event => {
         event.preventDefault();
