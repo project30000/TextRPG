@@ -4,6 +4,7 @@ import logo from '../logo.svg';
 import '../App.css';
 import axios from 'axios'
 
+
 class Navbar extends Component {
     constructor() {
         super()
@@ -44,13 +45,13 @@ class Navbar extends Component {
                             </section>
                         ) : (
                                 <section className="navbar-section">
-                                    <Link to="/" className="btn btn-link text-secondary">
-                                        <span className="text-secondary">home</span>
+                                    <Link to="/game" className="btn btn-link text-secondary">
+                                        <span className="text-secondary">GAME</span>
                                     </Link>
-                                    <Link to="/login" className="btn btn-link text-secondary">
+                                    <Link to="#group3"  className="btn btn-link text-secondary">
                                         <span className="text-secondary">login</span>
                                     </Link>
-                                    <Link to="/signup" className="btn btn-link">
+                                    <Link to="#signup" className="btn btn-link">
                                         <span className="text-secondary">sign up</span>
                                     </Link>
                                 </section>
@@ -59,7 +60,7 @@ class Navbar extends Component {
                     <div className="col-4 col-mr-auto">
                         <div id="top-filler"></div>
                         <img src={logo} className="App-logo" alt="logo" />
-                        <h1 className="App-title">MEAN Passport</h1>
+                        <h1 className="App-title">MEAN assport</h1>
                     </div>
                 </header>
             </div>

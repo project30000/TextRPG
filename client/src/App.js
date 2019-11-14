@@ -6,6 +6,7 @@ import Signup from './pages/sign-up'
 import LoginForm from './pages/login-form'
 import Navbar from './pages/navbar'
 import Game from './pages/Game'
+import Home from './pages/Home'
 
 class App extends Component {
   constructor() {
@@ -38,7 +39,8 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          username: response.data.user.username,
+          userId: response.data.user.id
         })
       } else {
         console.log('Get user: no user');
@@ -49,6 +51,65 @@ class App extends Component {
       }
     })
   }
+
+  // on submit --> initializing game 
+  submitCharacter() {
+    //state is current user's username 
+    this.setState({
+      loggedIn: true,
+      username: this.state.username,
+      userId: this.state.userId,
+      killCount: 0,
+      character: "test", // from forum 
+    })
+
+    //first post to database, attaching the logged-in account/state username with it 
+    axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
+      name: "test", //grab value from form // ,
+    })
+
+    var characterDataId;
+    axios.get('/characters/' + this.state.userId + "/" + this.state.character).then(response => {
+      characterDataId = response.data._id
+    })
+
+    // update state to include a killcount of zero 
+    this.setState({
+      loggedIn: true,
+      username: this.state.username,
+      userId: this.state.userId,
+      killCount: 0,
+      character: "test", // from forum 
+      characterId: characterDataId,
+    })
+
+  }
+
+  //incrementing deathKill
+  incrementDeath() {
+    //just add one to killcount
+    this.setState({
+      loggedIn: true,
+      username: this.state.username,
+      userId: this.state.userId,
+      killCount: this.state.killCount + 1,
+      character: this.state.character,
+      characterId: this.state.characterId,
+    })
+
+  }
+
+  //posting deathcount into scores
+  postingDeathCount() {
+    var killCount = this.state.killCount
+    var id = this.state.userId
+    
+    axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
+
+  }
+
+
+
 
   render() {
     return (
@@ -64,9 +125,6 @@ class App extends Component {
           exact path="/"
           component={Home} />
         <Route
-          exact path="/game"
-          component={Game} />
-        <Route
           path="/login"
           render={() =>
             <LoginForm
@@ -78,10 +136,17 @@ class App extends Component {
           render={() =>
             <Signup />}
         />
-
-      </div>
-    );
+        <Route
+          path="/game"
+          render={() =>
+            <Game />}
+        />
+        </div>
+      );
+    }
   }
-}
 
-export default App;
+
+
+
+  export default App;
