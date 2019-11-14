@@ -1,21 +1,43 @@
     [
         {
-            "id": 1,
+            "id": 0,
             "text": "You're finally awake. We thought you'd sleep forever.",
             "options": [
                 {
-                    "text": "Answer one",
-                    "nextText": 2
+                    "text": "Apples",
+                    "nextText": 1
                 },
                 {
-                    "text": "Answer two",
+                    "text": "Bananas",
+                    "nextText": 2
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "text": "You clicked Apples.",
+            "options": [
+                {
+                    "text": "Next",
                     "nextText": 3
+                },
+                {
+                    "text": "Also Next",
+                    "nextText": 3
+                },
+                {
+                    "text": "This will restart the dialog",
+                    "nextText": 0
+                },
+                {
+                    "text": "This will show what happens when you hit Bananas",
+                    "nextText": 2
                 }
             ]
         },
         {
             "id": 2,
-            "text": "Question 2",
+            "text": "You hit bananas",
             "options": [
                 {
                     "text": "Text option 1",
@@ -26,31 +48,24 @@
                     "nextText": 3
                 },
                 {
-                    "text": "Text option 3",
-                    "nextText": 3
-                },
-                {
-                    "text": "Text option 4",
-                    "nextText": 3
+                    "text": "Go to apples",
+                    "nextText": 1
                 }
             ]
         },
         {
             "id": 3,
-            "text": "Question 3",
+            "text": "To be continued",
             "options": [
                 {
-                    "text": "Text option 1",
-                    "nextText": 3
+                    "text": "Restart",
+                    "nextText": 0
                 },
                 {
-                    "text": "Text option 2",
-                    "nextText": 3
-                },
-                {
-                    "text": "Text option 3",
-                    "nextText": 3
+                    "text": "Break yo shit",
+                    "nextText": 4
                 }
             ]
         }
+
     ]
