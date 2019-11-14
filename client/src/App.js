@@ -7,7 +7,10 @@ import LoginForm from './pages/login-form'
 import Navbar from './pages/navbar'
 import Game from './pages/Game'
 import Home from './pages/Home'
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 
 class App extends Component {
   constructor() {
