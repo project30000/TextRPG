@@ -35,7 +35,7 @@ class Game extends Component {
     }
 
     render() {
-        var nextOptions = this.state.currentLine.options.filter(e => e.killcount === this.props.data.killCount)
+        let nextOptions = this.state.currentLine.options.filter(e => e.killcount === this.props.data.killCount)
         return (
             <div>
                 <br />
