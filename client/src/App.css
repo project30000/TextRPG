@@ -23,7 +23,8 @@
 }
 
 .navbar {
- 
+  height: 100px;
+ background-color: black;
   margin-top: auto;
   
 }

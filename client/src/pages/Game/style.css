@@ -11,13 +11,18 @@
    */
 
  .container {
-  font-family: 'Bangers', cursive;
-   width: 500px;
+  width: 500px;
    max-width: 50%;
-   background-color: whitesmoke;
+   background-color: #f2f2f2;
    padding: 10px;
    border-radius: 10px;
    box-shadow: 0 0 10px 2px;
+   grid-template-columns: repeat(2, auto);
+
+ }
+
+ .text {
+  font-family: 'Corben', cursive;
  }
 
  /* .btnGrid {
@@ -28,8 +33,8 @@
   } */
 
  .btn {
-   background-color: hsl(200, 100%, 50%);
-   border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+   border-radius: 10px;
    padding: 5px 10px;
    color: white;
    outline: none;
@@ -37,5 +42,5 @@
  }
 
  .btn:hover {
-   border-color: green;
+   color:#000080;
  }
