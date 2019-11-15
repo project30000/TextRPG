@@ -11,19 +11,8 @@ class Game extends Component {
         dialog: dialog,
         currentLine: dialog[0] //game init at first line
     }
-        //sound during game
-    render() {
-        return (
+
             
-          <Sound
-            url={videoGame}
-            playStatus={Sound.status.PLAYING}
-            //onLoading={this.handleSongLoading}
-            onPlaying={this.handleSongPlaying}
-            //onFinishedPlaying={this.handleSongFinishedPlaying}
-          />
-        );
-      }
 
     handleClick = (nextText,op) => {
         if (op) {
