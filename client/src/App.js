@@ -131,16 +131,34 @@ class App extends Component {
    
     
 
-  //overall Average
-   var overallAverage = 0
+  //number of people per ending
+  
+   var zeroNumber = 0;
+   var oneNumber = 0;
+   var twoNumber = 0;
+   var threeNumber = 0;
+   var fourNumber = 0;
+   var fiveNumber =0;
     axios.get('characters').then(response => {
       for (var i = 0; i < response.data.length ; i++) {
         var kc = parseInt(response.data[i].killCount)
-        console.log(kc)
-        overallAverage = overallAverage + kc;
+        if (kc = 0) {
+          zeroNumber++
+        } else if (kc = 1) {
+          oneNumber++
+        } else if (kc = 2) {
+          twoNumber++
+        } else if (kc = 3) {
+          threeNumber++
+        } else if (kc = 4) {
+          fourNumber++
+        } else if (kc = 5) {
+          fiveNumber++
+        }
       }
-      overallAverage = overallAverage/response.data.length
-      console.log("THE AVERAGE DEATH COUNT OF ALL USERS: " + overallAverage)
+      var arrayCount = [zeroNumber, oneNumber, twoNumber, threeNumber, fourNumber, fiveNumber]
+      console.log(arrayCount)
+      return arrayCount
     })
   
   }
