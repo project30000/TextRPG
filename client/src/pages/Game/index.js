@@ -5,65 +5,64 @@ import dialog from './dialog.json';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
 
-
 class Game extends Component {
     state = {
-        dude: "", //user logged in
-        currentLine: dialog[0]
+        userID: "", //user logged in
+        dialog: dialog,
+        currentLine: dialog[0] //game init at first line
     }
 
-
-    handleClick = () => {
-        alert('Your next Line is: ' + this.id);
-        console.log(dialog[0]);
-        // console.log(this.state.data);
+    handleClick = (nextText,op) => {
+        if (op) {
+            this.props.incrementDeath(this.props.data.killCount);
+        }
         
+        // alert('Your next Line is: ' + nextText);
         this.setState({
-            currentLine: dialog[this.id]
+            currentLine: dialog[nextText]
         })
-    };
+        console.log(this.state.currentLine);
+    }
 
     componentDidMount() {
         API.getMyDude(this.props.username).then(myDude => {
             this.setState({
-                dude: myDude
+                userID: myDude
             })
         })
+        this.setState({ currentLine: dialog[0] })
+        // console.log(this.state.currentLine.options)
+        // console.log(dialog[0])
         // this.startGame();
     }
 
 
     render() {
-        // const textNodes = dialog;
-
-        // const showTextNode = (textNodeIndex) => {
-        //     const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)}
-
-
+        var nextOptions =this.state.currentLine.options.filter(e => e.killcount <= this.props.data.killCount)
         return (
             <div>
                 <br />
                 <br />
-                {/* {console.log(textNodes[0])} */}
                 < Text text={this.state.currentLine.text} />
-
-            
                 <br />
-                < div >
-                    {
-                        this.state.currentLine.options.map(option => (
-                            // console.log(option.nextText),
-                            < Button
-                                option={option.text}
-                                id={option.nextText}
-                                handleClick={this.handleClick}
-                            />
-                            ))
+                {
+                    
+                    console.log(nextOptions)
+                }
+                {
+                    nextOptions.map(option => (
+                        // console.log(option.nextText)
+                        // if (option.killcount > this.state.killCount)
+                        < Button
+                            option={option.text}
+                            nextText={option.nextText}
+                            handleClick={this.handleClick.bind("click", option.nextText, option.kill)}
+                        />
+                    ))
                     }
-                </div >
+
             </div >
         )
-
     }
 }
 
