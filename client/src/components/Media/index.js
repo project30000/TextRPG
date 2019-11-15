@@ -7,7 +7,7 @@ const Media = () => (
      
     //sound for game
     <Sound 
-    url={"https://www.audioblocks.com/stock-audio/vibe-descending-ding-he3hl22lvrk0wxsi1r.html"}
+    url={"https://www.freesoundeffects.com/free-track/open-door-1-426743/"}
     playStatus={Sound.status.PLAYING}
     // onLoading={this.handleSongLoading}
     // onPlaying={this.handleSongPlaying}
