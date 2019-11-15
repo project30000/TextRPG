@@ -11,6 +11,7 @@
    */
 
  .container {
+  font-family: 'Bangers', cursive;
    width: 500px;
    max-width: 50%;
    background-color: whitesmoke;
@@ -36,5 +37,5 @@
  }
 
  .btn:hover {
-   border-color: black;
+   border-color: green;
  }

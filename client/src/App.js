@@ -16,7 +16,7 @@ class App extends Component {
       loggedIn: true,
       username: "poop",
       userId: "5dca461355fad0bd7116f38a",
-      killCount: null,
+      killCount: 0,
       character: "weenie", // from forum 
       characterId: "5dcca7d49f58d5eace050256"
     }
@@ -36,7 +36,7 @@ class App extends Component {
 
   componentDidMount() {
     // this.getUser()
-    this.finishGame(this.state.userId,this.state.killCount)
+    // this.finishGame(this.state.userId,this.state.killCount)
   }
 
   updateUser=(userObject)=>{
