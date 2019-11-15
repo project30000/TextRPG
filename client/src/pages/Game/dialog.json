@@ -1,75 +1,85 @@
-    [
-        {
-            "id": 0,
-            "text": "You're finally awake. We thought you'd sleep forever.",
-            "options": [
-                {
-                    "text": "No Kill",
-                    "nextText": 1,
-                    "killcount": 0
-                },
-                {
-                    "text": "Kill",
-                    "nextText": 2,
-                    "killcount": 0,
-                    "kill": true
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "text": "You clicked no kill.",
-            "options": [
-                {
-                    "text": "Next",
-                    "nextText": 3
-                },
-                {
-                    "text": "Also Next",
-                    "nextText": 3
-                },
-                {
-                    "text": "This will restart the dialog",
-                    "nextText": 0
-                },
-                {
-                    "text": "This will show what happens when you hit Bananas",
-                    "nextText": 2
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "text": "You hit kill",
-            "options": [
-                {
-                    "text": "Does this display",
-                    "nextText": 3,
-                    "killcount": 1
-                },
-                {
-                    "text": "Text option 2",
-                    "nextText": 3
-                },
-                {
-                    "text": "Go to apples",
-                    "nextText": 1
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "text": "To be continued",
-            "options": [
-                {
-                    "text": "Restart",
-                    "nextText": 0
-                },
-                {
-                    "text": "Break yo shit",
-                    "nextText": 4
-                }
-            ]
-        }
+[
+    {
+        "id": 0,
+        "text": "0",
+        "options": [
+            {
+                "text": "Go to 1",
+                "nextText": 1,
+                "killcount": 0
+            },
+            {
+                "text": "Go to 2, kill",
+                "nextText": 2,
+                "killcount": 0,
+                "kill": true
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "text": "You clicked no kill.",
+        "options": [
+            {
+                "text": "Kill",
+                "nextText": 2,
+                "killcount": 0,
+                "kill": true
+            },
+            {
+                "text": "No kill",
+                "killcount": 0,
+                "nextText": 3
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "text": "You hit kill",
+        "options": [
+            {
+                "text": "Killcount is 1",
+                "nextText": 4,
+                "killcount": 1
+            },
+            {
+                "text": "This button should NOT be showing",
+                "nextText": 0
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "text": "Why won't you just kill someone already",
+        "options": [
+            {
+                "text": "Restart",
+                "nextText": 0
+            },
+            {
+                "text": "Kill",
+                "nextText": 2
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "text": "End",
+        "options": [
+            {
+                "text": "Restart (This button should not show)",
+                "nextText": 0
+            },
+            {
+                "text": "Restart",
+                "nextText": 0,
+                "killcount": 1
+            },
+            {
+                "text": "Game Over",
+                "end": true
+            }
+        ]
+    }
 
-    ]
+]

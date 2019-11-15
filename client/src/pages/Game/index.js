@@ -14,11 +14,13 @@ class Game extends Component {
         currentLine: dialog[0] //game init at first line
     }
 
-    handleClick = (nextText,op) => {
+    handleClick = (nextText,op, end) => {
         if (op) {
             this.props.incrementDeath(this.props.data.killCount);
         }
-        
+        if (end) {
+            this.props.finishGame(this.props.data.userID, this.props.data.killCount)
+        }
         // alert('Your next Line is: ' + nextText);
         this.setState({
             currentLine: dialog[nextText]
@@ -66,7 +68,7 @@ class Game extends Component {
                         < Button
                             option={option.text}
                             nextText={option.nextText}
-                            handleClick={this.handleClick.bind("click", option.nextText, option.kill)}
+                            handleClick={this.handleClick.bind("click", option.nextText, option.kill,option.end)}
                         />
                     ))
                 }
