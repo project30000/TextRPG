@@ -231,36 +231,66 @@
         "id": 12,
         "text": "5 kills",
         "options": [
+            {
+                "text": "See Score",
+                "killcount": 5,
+                "end": true
+            }
         ]
     },
     {
         "id": 13,
         "text": "4 kills",
         "options": [
+            {
+                "text": "See Score",
+                "killcount": 4,
+                "end": true
+            }
         ]
     },
     {
         "id": 14,
         "text": "3 kills",
         "options": [
+            {
+                "text": "See Score",
+                "killcount": 3,
+                "end": true
+            }
         ]
     },
     {
         "id": 15,
         "text": "2 kills",
         "options": [
+            {
+                "text": "See Score",
+                "killcount": 2,
+                "end": true
+            }
         ]
     },
     {
         "id": 16,
         "text": "1 kills",
         "options": [
+            {
+                "text": "See Score",
+                "killcount": 1,
+                "end": true
+            }
         ]
     },
     {
         "id": 17,
         "text": "0 kills",
         "options": [
+            {
+                "text": "See Score",
+                "killcount": 0,
+                "end": true
+            }
         ]
     }
 
