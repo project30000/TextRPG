@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
-import Typist from 'react-typist';
-import 'react-typist/dist/Typist.css';
 import './style.css';
 import dialog from './dialog.json';
 import Button from '../../components/Button';
@@ -12,7 +10,6 @@ class Game extends Component {
         userID: "5dca461355fad0bd7116f38a", //user logged in
         dialog: dialog,
         currentLine: dialog[0] //game init at first line
-
     }
 
     handleClick = (nextText, op, end) => {
@@ -22,7 +19,6 @@ class Game extends Component {
         if (end) {
             this.props.finishGame(this.props.data.userID, this.props.data.killCount)
         }
-        // alert('Your next Line is: ' + nextText);
         this.setState({
             currentLine: dialog[nextText]
         })
@@ -31,24 +27,12 @@ class Game extends Component {
 
     componentDidMount() {
         API.getMyDude(this.props.username).then(myDude => {
-            // this.setState({
-            //     userID: myDude
-
-            // })
+            // this.setState({userID: myDude})
         })
         console.log("killcount ==========" + this.props.data.killCount)
         this.setState({ currentLine: dialog[0] })
         this.props.finishGame(this.state.userID)
-
-        // console.log(this.state.currentLine.options)
-        // console.log(dialog[0])
-        // this.startGame();
     }
-
-
-    // const imageStyle = {
-    //     width: 400
-    // }
 
     render() {
         var nextOptions = this.state.currentLine.options.filter(e => e.killcount === this.props.data.killCount)
