@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #666;
   height: 150px;
   padding: 20px;
   color: white;
@@ -49,6 +49,7 @@
             overflow-y: auto;
             -webkit-perspective: 300px;
             perspective: 300px;
+            background-attachment: scroll;
           }
         
           .parallax__group {
@@ -92,7 +93,7 @@
         
           /* Debugger styles - used to show the effect
           --------------------------------------------- */
-        
+/*         
           .debug {
             position: fixed;
             top: 0;
@@ -102,8 +103,8 @@
             color: #fff;
             padding: .5em;
             border-radius: 0 0 5px 5px;
-          }
-          .debug-on .parallax__group {
+          } */
+          /* .debug-on .parallax__group {
             -webkit-transform: translate3d(800px, 0, -800px) rotateY(30deg);
             transform: translate3d(700px, 0, -800px) rotateY(30deg);
          }
@@ -114,7 +115,7 @@
           .parallax__group {
             -webkit-transition: -webkit-transform 0.5s;
             transition: transform 0.5s;
-          }
+          } */
         
         
           /* demo styles
@@ -152,64 +153,73 @@
           /* style the groups
           --------------------------------------------- */
           img {
-            width: 100%;
-            height: auto;
+            width: 1400;
+            height: 800px;
           }
+/* _______________________________________________________ */
           #group1 {
-            z-index: 5; /* slide over group 2 */
+            z-index: 2; /* slide over group 2 */
 
           }
           #group1 .parallax__layer--base {
-            background:snow;
-    
+            background:#111111;
+          
           }
         
           #group2 {
             z-index: 3; /* slide under groups 1 and 3 */
           }
           #group2 .parallax__layer--back {
-            background: grey;
+            background: #555555;
           }
         
           #group3 {
             z-index: 4; /* slide over group 2 and 4 */
           }
           #group3 .parallax__layer--base {
-            background: peachpuff;
+            background: #111111;
           }
-        
+          #auto{
+            color: white;
+          }
           #group4 {
             z-index: 2; /* slide under group 3 and 5 */
+            color: white;
           }
           #group4 .parallax__layer--deep {
-            background: cornsilk;
+            background: #333333;
+            color: white;
           }
         
           #group5 {
             z-index: 3; /* slide over group 4 and 6 */
           }
           #group5 .parallax__layer--base {
-            background: black;
+            background: #666666;
           }
         
           #group6 {
             z-index: 2; /* slide under group 5 and 7 */
+            height: 80%;
           }
           #group6 .parallax__layer--back {
-            background: wheat;
+            background: black;
+            /* height:70%; */
           }
         
           #group7 {
             z-index: 3; /* slide over group 7 */
+            height: 20%;
           }
           #group7 .parallax__layer--base {
             background: thistle;
           }
+          
         
         
           /* misc
           --------------------------------------------- */
-          .demo__info {
+          /* .demo__info {
             position: absolute;
             z-index:100;
             bottom: 1vh;
@@ -217,4 +227,4 @@
             font-size:80%;
             text-align:center;
             width: 100%;
-          }
+          } */
