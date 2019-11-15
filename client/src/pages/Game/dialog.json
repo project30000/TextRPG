@@ -1,75 +1,298 @@
-    [
-        {
-            "id": 0,
-            "text": "You're finally awake. We thought you'd sleep forever.",
-            "options": [
-                {
-                    "text": "No Kill",
-                    "nextText": 1,
-                    "killcount": 0
-                },
-                {
-                    "text": "Kill",
-                    "nextText": 2,
-                    "killcount": 0,
-                    "kill": true
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "text": "You clicked no kill.",
-            "options": [
-                {
-                    "text": "Next",
-                    "nextText": 3
-                },
-                {
-                    "text": "Also Next",
-                    "nextText": 3
-                },
-                {
-                    "text": "This will restart the dialog",
-                    "nextText": 0
-                },
-                {
-                    "text": "This will show what happens when you hit Bananas",
-                    "nextText": 2
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "text": "You hit kill",
-            "options": [
-                {
-                    "text": "Does this display",
-                    "nextText": 3,
-                    "killcount": 1
-                },
-                {
-                    "text": "Text option 2",
-                    "nextText": 3
-                },
-                {
-                    "text": "Go to apples",
-                    "nextText": 1
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "text": "To be continued",
-            "options": [
-                {
-                    "text": "Restart",
-                    "nextText": 0
-                },
-                {
-                    "text": "Break yo shit",
-                    "nextText": 4
-                }
-            ]
-        }
+[
+    {
+        "id": 0,
+        "text": "1",
+        "options": [
+            {
+                "text": "2A (first kill)",
+                "nextText": 1,
+                "killcount": 0,
+                "kill": true
+            },
+            {
+                "text": "2B (no kill) ",
+                "nextText": 2,
+                "killcount": 0
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "text": "2A",
+        "options": [
+            {
+                "text": "3A (one kill-> second kill)",
+                "nextText": 3,
+                "killcount": 1,
+                "kill": true
+            },
+            {
+                "text": "3A ( one kill - > no kill)",
+                "nextText": 3,
+                "killcount": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "text": "2B",
+        "options": [
+            {
+                "text": "3A (first kill)",
+                "nextText": 3,
+                "killcount": 0,
+                "kill": true
+            },
+            {
+                "text": "3B (no kill)",
+                "nextText": 4,
+                "killcount": 0
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "text": "3A",
+        "options": [
+            {
+                "text": "4A (two kills -> third kill)",
+                "killcount": 2,
+                "kill": true,
+                "nextText": 5
+            },
+            {
+                "text": "4B (one kill -> kill)",
+                "kill": true,
+                "killcount": 1,
+                "nextText": 6
+            },
+            {
+                "text": "4B (one kill -> no kill)",
+                "killcount": 1,
+                "nextText": 6
+            },
+            {
+                "text": "4B (two kills-> no kill)",
+                "killcount": 2,
+                "nextText": 6
+            }
+            
+        ]
+    },
+    {
+        "id": 4,
+        "text": "3B",
+        "options": [
+            {
+                "text": "4B (first kill)",
+                "killcount": 0,
+                "kill": true,
+                "nextText": 6
+            },
+            {
+                "text": "4C (no kill)",
+                "killcount": 0,
+                "nextText": 7
 
-    ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "text": "4A",
+        "options": [
+            {
+                "text": "5A (fourth kill)",
+                "killcount": 3,
+                "kill": true,
+                "nextText": 8
+            },
+            {
+                "text": "5B (no kill)",
+                "killcount": 3,
+                "nextText": 9
+
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "text": "4B",
+        "options": [
+            {
+                "text": "5B (third kill)",
+                "killcount": 2,
+                "kill": true,
+                "nextText": 9
+            },
+            {
+                "text": "5B (no kill)",
+                "killcount": 2,
+                "kill": true,
+                "nextText": 9
+            },
+            
+            
+            {
+                "text": "5C (no kill)",
+                "killcount": 1,
+                "nextText": 10
+
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "text": "4C",
+        "options": [
+            {
+                "text": "5C (first kill)",
+                "killcount": 0,
+                "kill": true,
+                "nextText": 10
+            },
+            {
+                "text": "5D (no kill)",
+                "killcount": 0,
+                "nextText": 11
+
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "text": "5A",
+        "options": [
+            {
+                "text": "fifth kill",
+                "killcount": 4,
+                "kill": true,
+                "nextText": 12
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "text": "5B",
+        "options": [
+            {
+                "text": "fourth kill",
+                "killcount": 3,
+                "kill": true,
+                "nextText": 13
+            },
+            {
+                "text": "third kill",
+                "killcount": 2,
+                "kill": true,
+                "nextText": 14
+            },
+            {
+                "text": "three kills -no kill",
+                "killcount": 3,
+                "nextText": 14
+            },
+            {
+                "text": "two kills -no kill",
+                "killcount": 2,
+                "nextText": 15
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "text": "5C",
+        "options": [
+            {
+                "text": "second kill",
+                "killcount": 1,
+                "kill": true,
+                "nextText": 15
+            },
+            {
+                "text": "one kill->no kill",
+                "killcount": 1,
+                "nextText": 16
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "text": "5D",
+        "options": [
+            {
+                "text": "no kill",
+                "killcount": 0,
+                "nextText": 17
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "text": "5 kills",
+        "options": [
+            {
+                "text": "See Score",
+                "killcount": 5,
+                "end": true
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "text": "4 kills",
+        "options": [
+            {
+                "text": "See Score",
+                "killcount": 4,
+                "end": true
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "text": "3 kills",
+        "options": [
+            {
+                "text": "See Score",
+                "killcount": 3,
+                "end": true
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "text": "2 kills",
+        "options": [
+            {
+                "text": "See Score",
+                "killcount": 2,
+                "end": true
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "text": "1 kills",
+        "options": [
+            {
+                "text": "See Score",
+                "killcount": 1,
+                "end": true
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "text": "0 kills",
+        "options": [
+            {
+                "text": "See Score",
+                "killcount": 0,
+                "end": true
+            }
+        ]
+    }
+
+
+]

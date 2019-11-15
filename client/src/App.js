@@ -7,41 +7,46 @@ import LoginForm from './pages/login-form'
 import Navbar from './pages/navbar'
 import Game from './pages/Game'
 import Home from './pages/Home'
+import { parse } from 'path';
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      loggedIn: true,
-      username: "poop",
-      userId: "5dca461355fad0bd7116f38a",
-      killCount: 0,
-      character: "weenie", // from forum 
-      characterId: "5dcca7d49f58d5eace050256"
-    }
-  }
   // constructor() {
   //   super()
   //   this.state = {
-  //     loggedIn: false,
-  //     username: null
+  //     loggedIn: true,
+  //     username: "poop",
+  //     userId: "5dca461355fad0bd7116f38a",
+  //     killCount: 0,
+  //     character: "weenie", // from forum 
+  //     characterId: "5dcca7d49f58d5eace050256"
   //   }
-
-  //   this.getUser = this.getUser.bind(this)
-  //   this.componentDidMount = this.componentDidMount.bind(this)
-  //   this.updateUser = this.updateUser.bind(this)
   // }
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      username: null,
+      userId: null,
+      killCount: 0,
+      character: null,
+      characterId: null
+    }
+
+    this.getUser = this.getUser.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.updateUser = this.updateUser.bind(this)
+  }
 
 
   componentDidMount() {
     this.getUser()
   }
 
-  updateUser(userObject) {
+  updateUser=(userObject)=>{
     this.setState(userObject)
   }
 
-  getUser() {
+  getUser=()=>{
     axios.get('/user/').then(response => {
       console.log('Get user response: ')
       console.log(response.data)
@@ -65,16 +70,16 @@ class App extends Component {
   }
 
   // on submit --> initializing game 
-  submitCharacter() {
+  submitCharacter=()=>{
     //state is current user's username 
     this.setState({
       killCount: 0,
-      character: "test", // from forum 
+      character: "", // from forum 
     })
 
     //first post to database, attaching the logged-in account/state username with it 
     axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
-      name: "test", //grab value from form // ,
+      name: this.state.character //grab value from form // ,
     }).then(
       data => {
         var characterDataId;
@@ -91,10 +96,7 @@ class App extends Component {
 
   //incrementing deathKill
   incrementDeath=(killCount)=> {
-    console.log(killCount);
-
     killCount +=1
-    console.log(killCount);
     //just add one to killcount
     this.setState({
       killCount: killCount,
@@ -102,13 +104,65 @@ class App extends Component {
   }
 
   //posting deathcount into scores
-  postingDeathCount() {
-    var killCount = this.state.killCount
-    var id = this.state.userId
-
-    axios.put('characters/' + id + "/" + this.state.character + "/" + killCount)
-
+  postingDeathCount=(id, killCount)=>{
+    axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
   }
+
+
+
+  finishGame=(userId, killCount)=>{  
+    this.postingDeathCount(userId, killCount)
+    // display killcount (this.state.killCount)
+    console.log("CURRENT DEATH COUNT: " + killCount)
+
+    // display users average killcount
+    var userAverage = 0
+    console.log("finishGame is hit")
+    axios.get('users/' + userId).then(response => {
+      for (var i = 0; i < response.data.length ; i++) {
+        var kc = parseInt(response.data[i].killCount)
+        console.log(kc)
+        userAverage = userAverage + kc;
+      }
+      userAverage = userAverage/response.data.length
+      console.log("YOUR AVERAGE DEATH COUNT: " + userAverage)
+
+    })
+   
+    
+
+  //number of people per ending
+  
+   var zeroNumber = 0;
+   var oneNumber = 0;
+   var twoNumber = 0;
+   var threeNumber = 0;
+   var fourNumber = 0;
+   var fiveNumber =0;
+    axios.get('characters').then(response => {
+      for (var i = 0; i < response.data.length ; i++) {
+        var kc = parseInt(response.data[i].killCount)
+        if (kc = 0) {
+          zeroNumber++
+        } else if (kc = 1) {
+          oneNumber++
+        } else if (kc = 2) {
+          twoNumber++
+        } else if (kc = 3) {
+          threeNumber++
+        } else if (kc = 4) {
+          fourNumber++
+        } else if (kc = 5) {
+          fiveNumber++
+        }
+      }
+      var arrayCount = [zeroNumber, oneNumber, twoNumber, threeNumber, fourNumber, fiveNumber]
+      console.log("ARRAY OF PPL WITH SCORES: " + arrayCount)
+      return arrayCount
+    })
+  
+  }
+  
 
 
 
@@ -116,16 +170,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
+        
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
-        {/* {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p> */}
+        {this.state.loggedIn}
 
-        {/* Routes to different components */}
+        {/* /* Routes to different components */}
         <Route
           exact path="/"
-          component={Home} />
+          component={Home} 
+          />
+          
+          
         <Route
           path="/login"
           render={() =>
@@ -142,12 +198,14 @@ class App extends Component {
           path="/game"
           render={() =>
             <Game
-
               incrementDeath={this.incrementDeath}
+              finishGame={this.finishGame}
               data={this.state}
             />}
         />
+      
       </div>
+      
     );
   }
 }

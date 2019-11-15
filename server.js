@@ -66,6 +66,14 @@ app.get("/characters/:id/:name", (req, res) => {
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 })
+// get user characters
+app.get("/users/:id", (req, res) => {
+    
+    db.Character
+        .find({ user_id: req.params.id })
+        .then(dbModel => res.json(dbModel))        
+        .catch(err => res.status(422).json(err));
+})
 
 app.delete("/characters/:id", (req, res) => {
     db.Character
