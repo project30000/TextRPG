@@ -28,7 +28,6 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.0.0",
     "connect-mongo": "^3.1.2",
-    "csshake": "^1.5.3",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "if-env": "^1.0.4",
@@ -38,6 +37,7 @@
     "passport-local": "^1.0.0",
     "react-sound": "^1.2.0",
     "react-typist": "^2.0.5",
+    "reshake": "^1.2.1",
     "spectre.css": "^0.5.8",
     "typist": "^0.1.0"
   }
