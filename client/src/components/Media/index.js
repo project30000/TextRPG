@@ -7,7 +7,7 @@ const Media = () => (
      
     //sound for game
     <Sound 
-    url={"https://www.freesoundeffects.com/free-track/open-door-1-426743/"}
+    url="https://www.freesoundeffects.com/free-track/open-door-1-426743/"
     playStatus={Sound.status.PLAYING}
     // onLoading={this.handleSongLoading}
     // onPlaying={this.handleSongPlaying}
