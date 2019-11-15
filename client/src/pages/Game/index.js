@@ -4,6 +4,7 @@ import './style.css';
 import dialog from './dialog.json';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
+import {withRouter} from "react-router"
 
 class Game extends Component {
     state = {
@@ -13,11 +14,12 @@ class Game extends Component {
     }
 
     handleClick = (nextText, op, end) => {
+        if (end == true) {
+            // this.props.finishGame(this.props.data.userID, this.props.data.killCount)
+            this.props.history.push('/endgame')
+        }
         if (op) {
             this.props.incrementDeath(this.props.data.killCount);
-        }
-        if (end) {
-            this.props.finishGame(this.props.data.userID, this.props.data.killCount)
         }
         this.setState({
             currentLine: dialog[nextText]
@@ -58,4 +60,4 @@ class Game extends Component {
     }
 }
 
-export default Game
+export default withRouter(Game)
