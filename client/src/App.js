@@ -10,33 +10,36 @@ import Home from './pages/Home'
 import { parse } from 'path';
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      loggedIn: true,
-      username: "poop",
-      userId: "5dca461355fad0bd7116f38a",
-      killCount: 0,
-      character: "weenie", // from forum 
-      characterId: "5dcca7d49f58d5eace050256"
-    }
-  }
   // constructor() {
   //   super()
   //   this.state = {
-  //     loggedIn: false,
-  //     username: null
+  //     loggedIn: true,
+  //     username: "poop",
+  //     userId: "5dca461355fad0bd7116f38a",
+  //     killCount: 0,
+  //     character: "weenie", // from forum 
+  //     characterId: "5dcca7d49f58d5eace050256"
   //   }
-
-  //   this.getUser = this.getUser.bind(this)
-  //   this.componentDidMount = this.componentDidMount.bind(this)
-  //   this.updateUser = this.updateUser.bind(this)
   // }
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      username: null,
+      userId: null,
+      killCount: 0,
+      character: null,
+      characterId: null
+    }
+
+    this.getUser = this.getUser.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.updateUser = this.updateUser.bind(this)
+  }
 
 
   componentDidMount() {
-    // this.getUser()
-    // this.finishGame(this.state.userId,this.state.killCount)
+    this.getUser()
   }
 
   updateUser=(userObject)=>{
@@ -71,12 +74,12 @@ class App extends Component {
     //state is current user's username 
     this.setState({
       killCount: 0,
-      character: "test", // from forum 
+      character: "", // from forum 
     })
 
     //first post to database, attaching the logged-in account/state username with it 
     axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
-      name: "test", //grab value from form // ,
+      name: this.state.character //grab value from form // ,
     }).then(
       data => {
         var characterDataId;
@@ -102,9 +105,6 @@ class App extends Component {
 
   //posting deathcount into scores
   postingDeathCount=(id, killCount)=>{
-    // var killCount = this.state.killCount
-    // var id = this.state.userId
-
     axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
   }
 
@@ -157,7 +157,7 @@ class App extends Component {
         }
       }
       var arrayCount = [zeroNumber, oneNumber, twoNumber, threeNumber, fourNumber, fiveNumber]
-      console.log(arrayCount)
+      console.log("ARRAY OF PPL WITH SCORES: " + arrayCount)
       return arrayCount
     })
   

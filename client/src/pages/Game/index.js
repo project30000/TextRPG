@@ -7,7 +7,7 @@ import Text from '../../components/Text';
 
 class Game extends Component {
     state = {
-        userID: "5dca461355fad0bd7116f38a", //user logged in
+        userID: "", //user logged in
         dialog: dialog,
         currentLine: dialog[0] //game init at first line
     }
@@ -29,9 +29,7 @@ class Game extends Component {
         API.getMyDude(this.props.username).then(myDude => {
             // this.setState({userID: myDude})
         })
-        console.log("killcount ==========" + this.props.data.killCount)
         this.setState({ currentLine: dialog[0] })
-        this.props.finishGame(this.state.userID)
     }
 
     render() {
