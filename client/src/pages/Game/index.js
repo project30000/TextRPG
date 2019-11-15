@@ -42,13 +42,7 @@ class Game extends Component {
                     < Text text={this.state.currentLine.text} />
                     <br />
                     {
-
-                        console.log(nextOptions)
-                    }
-                    {
                         nextOptions.map(option => (
-                            // console.log(option.nextText)
-                            // if (option.killcount > this.state.killCount)
                             < Button
                                 option={option.text}
                                 nextText={option.nextText}
