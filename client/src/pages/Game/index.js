@@ -9,7 +9,7 @@ import Text from '../../components/Text';
 
 class Game extends Component {
     state = {
-        userID: "", //user logged in
+        userID: "5dca461355fad0bd7116f38a", //user logged in
         dialog: dialog,
         currentLine: dialog[0] //game init at first line
     }
@@ -28,11 +28,15 @@ class Game extends Component {
 
     componentDidMount() {
         API.getMyDude(this.props.username).then(myDude => {
-            this.setState({
-                userID: myDude
-            })
+            // this.setState({
+            //     userID: myDude
+                
+            // })
         })
+        console.log(this.state.userID)
         this.setState({ currentLine: dialog[0] })
+        this.props.finishGame(this.state.userID)
+       
         // console.log(this.state.currentLine.options)
         // console.log(dialog[0])
         // this.startGame();
@@ -65,7 +69,8 @@ class Game extends Component {
                             handleClick={this.handleClick.bind("click", option.nextText, option.kill)}
                         />
                     ))
-                    }
+                }
+                
 
             </div >
         )

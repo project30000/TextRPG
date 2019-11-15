@@ -7,6 +7,7 @@ import LoginForm from './pages/login-form'
 import Navbar from './pages/navbar'
 import Game from './pages/Game'
 import Home from './pages/Home'
+import { parse } from 'path';
 
 class App extends Component {
   constructor() {
@@ -109,12 +110,42 @@ class App extends Component {
     axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
   }
 
+  finishGame(userId) {
+    // display killcount (this.state.killCount)
+
+    // display users average killcount
+    var userAverage;
+    console.log("finishGame is hit")
+    axios.get('users/' + userId).then(response => {
+      for (var i = 0; i < response.data.length ; i++) {
+        var kc = parseInt(response.data[i].killCount)
+        userAverage = userAverage + kc;
+      }
+      userAverage = userAverage/response.data.length
+
+    })
+    
+
+  //overall Average
+   var overallAverage;
+    axios.get('characters').then(response => {
+      for (var i = 0; i < response.data.length ; i++) {
+        var kc = parseInt(response.data[i].killCount)
+        overallAverage = overallAverage + kc;
+      }
+      overallAverage = overallAverage/response.data.length
+    })
+
+
+  }
+
 
 
 
   render() {
     return (
       <div className="App">
+        
 
         {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
         {/* greet user if logged in: */}
@@ -124,7 +155,10 @@ class App extends Component {
         {/* Routes to different components */}
         <Route
           exact path="/"
-          component={Home} />
+          component={Home} 
+          />
+          
+          
         <Route
           path="/login"
           render={() =>
@@ -143,10 +177,13 @@ class App extends Component {
             <Game
 
               incrementDeath={this.incrementDeath}
+              finishGame={this.finishGame}
               data={this.state}
             />}
         />
+      
       </div>
+      
     );
   }
 }
