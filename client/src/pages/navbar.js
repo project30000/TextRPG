@@ -54,7 +54,7 @@ class Navbar extends Component {
                         ) : (
                                 <section className="navbar-section">
                                     <Link to="#group3" className="btn btn-link text-secondary">
-                                        <span className="text-secondary">login</span>
+                                    <button className="btnShaken">Login</button>
                                     </Link>
                                     <div className="col-4 col-mr-auto">
                                         {/* <div id="top-filler"></div> */}
