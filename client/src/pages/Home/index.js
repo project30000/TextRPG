@@ -67,6 +67,10 @@ class Home extends Component {
         const imageStyle = {
         }
         return (
+            <div>
+                <div>
+            <audio ref="audio_tag" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls autoPlay/>
+ </div>
             <div class="parallax">
                 <div id="group1" class="parallax__group">
                     <div class="parallax__layer parallax__layer--base">
@@ -213,6 +217,7 @@ class Home extends Component {
                         <div class="title">Footer</div>
                     </div>
                 </div>
+            </div>
             </div>
              )
 
