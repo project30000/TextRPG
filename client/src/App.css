@@ -42,7 +42,6 @@ border-radius: 8px;
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
   
-
 .App {
   text-align: center;
 }
@@ -80,11 +79,11 @@ border-radius: 8px;
 #nav-container {
   align-items: flex-end;
 }
-
+/* 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
  /* Parallax base styles
            --------------------------------------------- */
          
@@ -205,6 +204,9 @@ border-radius: 8px;
 /* _______________________________________________________ */
           #group1 {
             z-index: 2; /* slide over group 2 */
+            /* content:url(https://i.ibb.co/XxYV7pB/picturebackground2.jpg); */
+            /* align-content: center; */
+
 
           }
           #group1 .parallax__layer--base {
@@ -214,9 +216,10 @@ border-radius: 8px;
         
           #group2 {
             z-index: 3; /* slide under groups 1 and 3 */
+            color: white;
           }
           #group2 .parallax__layer--back {
-            background: #555555;
+            background: #111111;
           }
         
           #group3 {
@@ -226,22 +229,24 @@ border-radius: 8px;
             background: #111111;
           }
           #auto{
-            color: white;
+            /* color: white; */
           }
           #group4 {
             z-index: 2; /* slide under group 3 and 5 */
             color: white;
           }
           #group4 .parallax__layer--deep {
-            background: #333333;
+            background: #111111;
             color: white;
+            
           }
         
           #group5 {
             z-index: 3; /* slide over group 4 and 6 */
+            height: 80%;
           }
           #group5 .parallax__layer--base {
-            background: #666666;
+            background: #111111;
           }
         
           #group6 {
@@ -249,13 +254,14 @@ border-radius: 8px;
             height: 80%;
           }
           #group6 .parallax__layer--back {
-            background: black;
+            background: #111111;
             /* height:70%; */
           }
         
           #group7 {
             z-index: 3; /* slide over group 7 */
-            height: 20%;
+            height: 25%;
+            align-content: center;
           }
           #group7 .parallax__layer--base {
             background: thistle;
