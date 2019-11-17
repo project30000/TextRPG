@@ -47,13 +47,13 @@ class Navbar extends Component {
                                     {/* <img src={logo} className="App-logo" alt="logo" /> */}
                                     <h1 className="App-title">Noice</h1>
                                 </div>
-                                <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
+                                <Link to="/login" className="btn btn-link text-secondary" onClick={this.logout}>
                                     <span className="text-secondary">logout</span></Link>
 
                             </section>
                         ) : (
                                 <section className="navbar-section">
-                                    <Link to="#group3" className="btn btn-link text-secondary">
+                                    <Link to="/login" className="btn btn-link text-secondary">
                                     <button className="btnShaken">Login</button>
                                     </Link>
                                     <div className="col-4 col-mr-auto">
@@ -61,7 +61,7 @@ class Navbar extends Component {
                                         {/* <img src={logo} className="App-logo" alt="logo" /> */}
                                         <h1 className="App-title">Noice</h1>
                                     </div>
-                                    <Link to="#signup" className="btn btn-link">
+                                    <Link to="/signup" className="btn btn-link">
                                     <button className="btnShake">sign up!</button>
                                     </Link>
                                 </section>
