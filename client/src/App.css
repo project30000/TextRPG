@@ -22,7 +22,9 @@ border-radius: 8px;
 
 .btnShaken:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shake 1.25s;
+
+  animation: shake 1.05s;
+
 
   /* When the animation is finished, start again */
   animation-iteration-count: infinite;
