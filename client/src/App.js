@@ -8,6 +8,10 @@ import Navbar from './pages/navbar'
 import Game from './pages/Game'
 import Home from './pages/Home'
 import { parse } from 'path';
+import Stats from './components/Stats';
+import Endgame from './pages/Endgame';
+import {withRouter} from 'react-router'
+import { Domain } from 'domain';
 
 class App extends Component {
   // constructor() {
@@ -29,7 +33,9 @@ class App extends Component {
       userId: null,
       killCount: 0,
       character: null,
-      characterId: null
+      characterId: null,
+      userAverage: null,
+      arrayCount: null,
     }
 
     this.getUser = this.getUser.bind(this)
@@ -126,10 +132,13 @@ class App extends Component {
       }
       userAverage = userAverage/response.data.length
       console.log("YOUR AVERAGE DEATH COUNT: " + userAverage)
+      this.setState({
+        userAverage: userAverage
+      })
 
     })
    
-    
+
 
   //number of people per ending
   
@@ -158,8 +167,13 @@ class App extends Component {
       }
       var arrayCount = [zeroNumber, oneNumber, twoNumber, threeNumber, fourNumber, fiveNumber]
       console.log("ARRAY OF PPL WITH SCORES: " + arrayCount)
-      return arrayCount
+      this.setState({
+        arrayCount: arrayCount, 
+      })
+      // this.props.history.push('/endgame')
+
     })
+
   
   }
   
@@ -199,9 +213,19 @@ class App extends Component {
           render={() =>
             <Game
               incrementDeath={this.incrementDeath}
-              finishGame={this.finishGame}
               data={this.state}
             />}
+        />
+
+        <Route 
+          path="/endgame"
+          render={() =>
+            <Endgame
+              data={this.state}
+              finishGame={this.finishGame}
+
+            />
+          }
         />
       
       </div>
@@ -213,4 +237,4 @@ class App extends Component {
 
 
 
-export default App;
+export default withRouter(App);

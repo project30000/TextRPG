@@ -1,11 +1,12 @@
 import React, { component } from 'react';
 
 
-
 const Stats = props => (
-    <p className="yourScore">{props.fillthisinKemp}</p>
-    <p className="avgScore">{props.fillthisinKemp}</p>
-    <div className="graph">{props.fillthisinKemp}</div>
+    <div>
+        <p className="yourScore">{props.data.killCount}</p>
+        <p className="avgScore">{props.data.userAverage}</p>
+        <div className="graph">{props.data.arrayCount}</div>
+    </div>
 
 )
 
