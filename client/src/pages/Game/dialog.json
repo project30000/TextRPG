@@ -292,6 +292,22 @@
                 "end": true
             }
         ]
+    },
+    {
+        "id": 18,
+        "text": "Welcome to our project. Choose your destiny:",
+        "options": [
+            {
+                "text": "Demo",
+                "killcount": 0,
+                "nextText": 0
+            },
+            {
+                "text": "Start a Quest",
+                "killcount": 0,
+                "nextText": 19
+            }
+        ]
     }
 
 
