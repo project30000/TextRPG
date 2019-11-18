@@ -298,7 +298,7 @@
         "text": "Welcome to our project. Choose your destiny:",
         "options": [
             {
-                "text": "Demo",
+                "text": "Debug",
                 "killcount": 0,
                 "nextText": 0
             },
@@ -308,7 +308,293 @@
                 "nextText": 19
             }
         ]
+    },
+    {
+        "id": 19,
+        "text": "You're awake. We thought you might sleep forever.",
+        "options": [
+            {
+                "text": "Where am I?",
+                "killcount": 0,
+                "nextText": 20
+            },
+            {
+                "text": "Who are you?",
+                "killcount": 0,
+                "nextText": 20
+            },
+            {
+                "text": "<say nothing>",
+                "killcount": 0,
+                "nextText": 21
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "text": "You are in a safe place and I am here to welcome you. What is the last thing you remember?",
+        "options": [
+            {
+                "text": "I don't get it.",
+                "killcount": 0,
+                "nextText": 21
+            },
+            {
+                "text": "I remember something about starting a quest.",
+                "killcount": 0,
+                "nextText": 21
+            },
+            {
+                "text": "<say nothing>",
+                "killcount": 0,
+                "nextText": 22
+            },
+            {
+                "text": "I'll show you a safe place! <attack>",
+                "killcount": 0,
+                "kill": true,
+                "nextText": 24
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "text": "I understand this may be difficult to comprehend, but you are inside a simulation. Here we create and test multiple scenarios and have a test subj... a volunteer go through the possible options. Does that make it any clearer?",
+        "options": [
+            {
+                "text": "Okay, let me out.",
+                "killcount": 0,
+                "nextText": 23
+            },
+            {
+                "text": "Yeah, that's ridiculous. I'm leaving.",
+                "killcount": 0,
+                "nextText": 23
+            },
+            {
+                "text": "I will obey.",
+                "killcount": 0,
+                "nextText": 26
+            },
+            {
+                "text": "<say nothing>",
+                "killcount": 0,
+                "nextText": 22
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "text": "The strong silent type? Well this won't get us anywhere.",
+        "options": [
+            {
+                "text": "Okay, let me out of here.",
+                "killcount": 0,
+                "nextText": 23
+            },
+            {
+                "text": "<say nothing>",
+                "killcount": 0,
+                "nextText": 22
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "text": "Well, we can't just let you walk out of here. There is a lesson to be learned.",
+        "options": [
+            {
+                "text": "Fine, I'll play along.",
+                "killcount": 0,
+                "nextText": 26
+            },
+            {
+                "text": "<attack!>",
+                "killcount": 0,
+                "kill": true,
+                "nextText": 24
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "text": "Ouch. That was a cute. Let's get back to work here.",
+        "options": [
+            {
+                "text": "Fine, I'll play along.",
+                "killcount": 1,
+                "nextText": 26
+            },
+            {
+                "text": "<attack, again>",
+                "killcount": 1,
+                "kill": true,
+                "nextText": 25
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "text": "Again, ouch. Not as cute as last time.",
+        "options": [
+            {
+                "text": "Fine, I'll play along.",
+                "killcount": 2,
+                "nextText": 26
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "text": "Well, that wasn't so difficult was it. Now Are you ready for the test?",
+        "options": [
+            {
+                "text": "Sure.",
+                "killcount": 0,
+                "nextText": 27
+            },
+            {
+                "text": "Sure.",
+                "killcount": 1,
+                "nextText": 27
+            },
+            {
+                "text": "<observe the host for weak points>",
+                "killcount": 1,
+                "nextText": 28
+            },
+            {
+                "text": "<observe the host for weak points>",
+                "killcount": 2,
+                "nextText": 28
+            },
+            {
+                "text": "<attack, again>",
+                "killcount": 2,
+                "nextText": 29
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "text": "What would happen if Pinnochio said, 'My nose will now grow'?",
+        "options": [
+            {
+                "text": "It would grow?",
+                "killcount": 0,
+                "nextText": 30
+            },
+            {
+                "text": "It would grow?",
+                "killcount": 1,
+                "nextText": 30
+            },
+            {
+                "text": "Nothing would happen..",
+                "killcount": 0,
+                "nextText": 31
+            },
+            {
+                "text": "Nothing would happen..",
+                "killcount": 1,
+                "nextText": 31
+            },
+            {
+                "text": "The world ends.",
+                "killcount": 0,
+                "nextText": 32
+            },
+            {
+                "text": "<attack>",
+                "killcount": 1,
+                "kill": true,
+                "nextText": 29
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "text": "<you spot the host is a computer, plugged into a wall>",
+        "options": [
+            {
+                "text": "<pull the plug>",
+                "killcount": 1,
+                "nextText": 29
+            },
+            {
+                "text": "<pull the plug>",
+                "killcount": 2,
+                "nextText": 29
+            },
+            {
+                "text": "<do nothing>",
+                "killcount": 1,
+                "nextText": 27
+            },
+            {
+                "text": "<do nothing>",
+                "killcount": 2,
+                "nextText": 27
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "text": "<you destroy the host>",
+        "options": [
+            {
+                "text": "End.",
+                "killcount": 1,
+                "end": true            
+            },
+            {
+                "text": "End.",
+                "killcount": 2,
+                "end": true            
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "text": "But Pinnochio's nose only grows when he's lying, saying 'My nose will now grow' is the truth.. We might have you keep you here for more tests.",
+        "options": [
+            {
+                "text": "See your score.",
+                "killcount": 0,
+                "end": true            
+            },
+            {
+                "text": "See your score.",
+                "killcount": 1,
+                "end": true            
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "text": "How would nothing happen, if Pinnochio's nose grows when he lies? And clearly his nose is not growing, as he claims. We might have you keep you here for more tests.",
+        "options": [
+            {
+                "text": "See your score.",
+                "killcount": 0,
+                "end": true            
+            },
+            {
+                "text": "See your score.",
+                "killcount": 1,
+                "end": true            
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "text": "That's... interesting. The Pinocchio paradox might end the world. You are free to go.",
+        "options": [
+            {
+                "text": "See your score.",
+                "killcount": 0,
+                "end": true            
+            }
+        ]
     }
-
-
 ]
