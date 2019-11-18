@@ -46,7 +46,6 @@ class Home extends Component {
                 <div id="group3" class="parallax__group">
                     <div class="parallax__layer parallax__layer--fore">
                         <div class="title">
-
                         </div>
                     </div>
                     <div class="parallax__layer parallax__layer--base">
@@ -58,9 +57,6 @@ class Home extends Component {
                     <div class="parallax__layer parallax__layer--base">
                                     </div>
                     <div class="parallax__layer parallax__layer--back">                        
-                       <br>
-                       </br>
-
                         <h1>Are you ready to wake up?</h1>
                             <hr></hr>
                         <p></p>

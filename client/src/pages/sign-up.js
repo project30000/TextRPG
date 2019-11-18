@@ -50,6 +50,7 @@ class Signup extends Component {
 
 	render() {
 		return (
+			<div class="wrap-login100">
 			<div className="SignupForm">
 				<h4>Sign up</h4>
 				<form className="form-horizontal">
@@ -91,6 +92,7 @@ class Signup extends Component {
 						>Sign up</button>
 					</div>
 				</form>
+				</div>
 			</div>
 
 		)
