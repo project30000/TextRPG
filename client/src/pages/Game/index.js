@@ -4,7 +4,7 @@ import './style.css';
 import dialog from './dialog.json';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
-import {withRouter} from "react-router"
+import { withRouter } from "react-router"
 
 
 class Game extends Component {
@@ -12,7 +12,7 @@ class Game extends Component {
         userID: this.props.userID, //user logged in
         character: this.props.character,
         dialog: dialog,
-        currentLine: dialog[0] //game init at first line
+        currentLine: dialog[18] //game init at first line
     }
 
     handleClick = (nextText, op, end) => {
@@ -30,10 +30,10 @@ class Game extends Component {
     }
 
     componentDidMount() {
-        // API.getMyDude(this.props.username).then(myDude => {
-        //     this.setState({userID: myDude})
-        // })
-        this.setState({ currentLine: dialog[0] })
+        API.getMyDude(this.props.username).then(myDude => {
+            // this.setState({userID: myDude})
+        })
+        this.setState({ currentLine: dialog[18] })
     }
 
     render() {
@@ -44,7 +44,6 @@ class Game extends Component {
                 <div class="container">
                     <br />
                     < Text text={this.state.currentLine.text} />
-                    <br />
                     {
                         nextOptions.map(option => (
                             < Button
@@ -57,6 +56,10 @@ class Game extends Component {
                     <br />
                 </div>
                 <br />
+                {/* <div>
+                    <audio ref="audio_tag" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls autoPlay />
+                </div> */}
+
             </div >
         )
     }

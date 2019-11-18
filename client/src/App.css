@@ -22,7 +22,9 @@ border-radius: 8px;
 
 .btnShaken:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shake 1.25s;
+
+  animation: shake 1.05s;
+
 
   /* When the animation is finished, start again */
   animation-iteration-count: infinite;
@@ -42,9 +44,9 @@ border-radius: 8px;
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
   
-
 .App {
   text-align: center;
+  background-color: #111111;
 }
 
 .App-logo {
@@ -81,10 +83,88 @@ border-radius: 8px;
   align-items: flex-end;
 }
 
+#form-horizontal{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+
+.wrap-login100 {
+  margin: auto;
+  width: 680px;
+  background: #666;
+  position: center;
+  color:white;
+  text-align: center;
+  border-radius: 10px;
+
+}
+.form-label{
+align-content: inherit;
+left: 20px;
+}
+ul {
+  display: inline-grid;
+  grid-auto-flow: row;
+  grid-gap: 24px;
+  justify-items: center;
+  margin: auto;
+}
+
+@media (min-width: 500px) {
+  ul {
+    grid-auto-flow: column;
+    color: white;
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
+}
+
+a:hover {
+  box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
+}
+
+li:last-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  color: white;
+}
+
+li:hover ~ li p {
+  animation: wave-animation 0.3s infinite;
+}
+
+/* below is just for demo styling */
+
+div {
+ 
+  line-height: 1.0;
+  font-family: Menlo, monospace;
+}
+
+@keyframes wave-animation {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
  /* Parallax base styles
            --------------------------------------------- */
          
@@ -169,12 +249,14 @@ border-radius: 8px;
         
           body, html {
             overflow: hidden;
+            background-color: #111111;
           }
         
           body {
             font: 100% / 1.5 Arial;
+            font-family: Arial, Helvetica, sans-serif;
           }
-        
+      
           * {
             margin:0;
             padding:0;
@@ -205,7 +287,8 @@ border-radius: 8px;
 /* _______________________________________________________ */
           #group1 {
             z-index: 2; /* slide over group 2 */
-
+            /* content:url(https://i.ibb.co/XxYV7pB/picturebackground2.jpg); */
+            /* align-content: center; */
           }
           #group1 .parallax__layer--base {
             background:#111111;
@@ -214,9 +297,10 @@ border-radius: 8px;
         
           #group2 {
             z-index: 3; /* slide under groups 1 and 3 */
+            color: white;
           }
           #group2 .parallax__layer--back {
-            background: #555555;
+            background: #111111;
           }
         
           #group3 {
@@ -225,23 +309,25 @@ border-radius: 8px;
           #group3 .parallax__layer--base {
             background: #111111;
           }
-          #auto{
+          /* #auto{
             color: white;
-          }
+          } */
           #group4 {
             z-index: 2; /* slide under group 3 and 5 */
             color: white;
           }
           #group4 .parallax__layer--deep {
-            background: #333333;
+            background: #111111;
             color: white;
+            
           }
         
           #group5 {
             z-index: 3; /* slide over group 4 and 6 */
+            height: 80%;
           }
           #group5 .parallax__layer--base {
-            background: #666666;
+            background: #111111;
           }
         
           #group6 {
@@ -249,19 +335,51 @@ border-radius: 8px;
             height: 80%;
           }
           #group6 .parallax__layer--back {
-            background: black;
+            background: #111111;
             /* height:70%; */
           }
         
           #group7 {
             z-index: 3; /* slide over group 7 */
-            height: 20%;
+            height: 25%;
+            align-content: center;
           }
           #group7 .parallax__layer--base {
-            background: thistle;
+            background: rgb(56, 44, 110);
+            font-size: 25px;
+            color: white;
           }
           
-        
+          #homeloginsign{
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+          }
+          #loginhome{
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+          }
+          .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+          }
         
           /* misc
           --------------------------------------------- */

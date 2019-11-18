@@ -35,7 +35,7 @@ class Navbar extends Component {
             <div>
 
                 <header className="navbar App-header" id="nav-container">
-                    <div className="col-4" >
+                    <div className="col-2" >
                         {loggedIn ? (
 
                             <section className="navbar-section">
@@ -45,23 +45,23 @@ class Navbar extends Component {
                                 <div className="col-4 col-mr-auto">
                                     <div id="top-filler"></div>
                                     {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                                    <h1 className="App-title">Noice</h1>
+                                    <h1 className="App-title">Digital Crab</h1>
                                 </div>
-                                <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
+                                <Link to="/login" className="btn btn-link text-secondary" onClick={this.logout}>
                                     <span className="text-secondary">logout</span></Link>
 
                             </section>
                         ) : (
                                 <section className="navbar-section">
-                                    <Link to="#group3" className="btn btn-link text-secondary">
-                                    <button className="btnShaken">Login</button>
-                                    </Link>
                                     <div className="col-4 col-mr-auto">
                                         {/* <div id="top-filler"></div> */}
                                         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-                                        <h1 className="App-title">Noice</h1>
+                                        <h1 className="App-title">Digital Crab</h1>
                                     </div>
-                                    <Link to="#signup" className="btn btn-link">
+                                    <Link to="/login" className="btn btn-link text-secondary">
+                                    <button className="btnShaken">Login</button>
+                                    </Link>
+                                    <Link to="/signup" className="btn btn-link">
                                     <button className="btnShake">sign up!</button>
                                     </Link>
                                 </section>
