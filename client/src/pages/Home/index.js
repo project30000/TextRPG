@@ -64,9 +64,10 @@ class Home extends Component {
                             <hr></hr>
                             <p>Ready to take on the day through the choices you make?</p>
                             <br></br>
-                            <button type="submit" formaction="/login">Login</button><hr></hr>
-
+                            <div class= "homeloginsign">
+                            <button class="loginhome" type="submit" formaction="/login">Login</button>
                             <button formaction="/sign-up">Sign Up</button>
+                            </div>
 
                         </div>
                         <div class="parallax__layer parallax__layer--deep">
