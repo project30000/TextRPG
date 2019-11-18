@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './style.css';
 import Stats from '../../components/Stats';
 import {
@@ -8,30 +9,46 @@ import {
 const data01 =
     // [this.props.data.arrayCount];
     [
-        { name: 'Group A', value: 200}, 
+        { name: 'Group A', value: 200 },
         { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 }, 
+        { name: 'Group C', value: 300 },
         { name: 'Group D', value: 200 },
-        { name: 'Group E', value: 278 }, 
+        { name: 'Group E', value: 278 },
         { name: 'Group F', value: 189 },
     ];
 
 
+
 class Endgame extends Component {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
+    constuctor() {
+        this.onClick = this.handleRestart.bind(this);
+        //I tried switching these around and making them equal, but it still says can't read prop on line 33
+      }
 
     state = {
     }
 
+    handleRestart() {
+        this.props.history.push('/game')
+
+    }
+
     componentDidMount() {
         this.props.finishGame(this.props.data.userID, this.props.data.killCount)
-
     }
 
     render() {
 
         return (
             <div>
+                 <div>
+                    <button
+                        onClick={this.handleRestart}
+                        className="btn">
+                        New Game
+                    </button>
+                </div>
                 <br />
                 <div><Stats data={this.props.data} /></div>
                 {console.log("Look here: " + this.props.data.arrayCount)}
@@ -54,9 +71,10 @@ class Endgame extends Component {
                     fill="#82ca9d" /> */}
                     <Tooltip />
                 </PieChart>
+               
             </div >
         )
     }
 }
 
-export default Endgame
+export default withRouter(Endgame)
