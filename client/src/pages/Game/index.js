@@ -6,9 +6,11 @@ import Button from '../../components/Button';
 import Text from '../../components/Text';
 import {withRouter} from "react-router"
 
+
 class Game extends Component {
     state = {
-        userID: "", //user logged in
+        userID: this.props.userID, //user logged in
+        character: this.props.character,
         dialog: dialog,
         currentLine: dialog[0] //game init at first line
     }
@@ -28,9 +30,9 @@ class Game extends Component {
     }
 
     componentDidMount() {
-        API.getMyDude(this.props.username).then(myDude => {
-            // this.setState({userID: myDude})
-        })
+        // API.getMyDude(this.props.username).then(myDude => {
+        //     this.setState({userID: myDude})
+        // })
         this.setState({ currentLine: dialog[0] })
     }
 

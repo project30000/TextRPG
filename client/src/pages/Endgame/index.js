@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import './style.css';
 import Stats from '../../components/Stats';
+import {withRouter} from "react-router";
 
 
 class Endgame extends Component {
@@ -9,7 +10,7 @@ class Endgame extends Component {
     }
 
     componentDidMount() {
-        this.props.finishGame(this.props.data.userID, this.props.data.killCount)
+        
         
     }
 
@@ -19,7 +20,6 @@ class Endgame extends Component {
                 <br />
                 <Stats 
                     data={this.props.data}
-
                 />
                 <br />
             </div >
@@ -27,4 +27,4 @@ class Endgame extends Component {
     }
 }
 
-export default Endgame
+export default withRouter(Endgame)

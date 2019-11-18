@@ -12,6 +12,7 @@ import Stats from './components/Stats';
 import Endgame from './pages/Endgame';
 import {withRouter} from 'react-router'
 import { Domain } from 'domain';
+import CharacterLog from './pages/CharacterLog';
 
 class App extends Component {
   // constructor() {
@@ -76,11 +77,11 @@ class App extends Component {
   }
 
   // on submit --> initializing game 
-  submitCharacter=()=>{
+  submitCharacter=(character)=>{
     //state is current user's username 
     this.setState({
       killCount: 0,
-      character: "", // from forum 
+      character: character, // from forum 
     })
 
     //first post to database, attaching the logged-in account/state username with it 
@@ -170,7 +171,7 @@ class App extends Component {
       this.setState({
         arrayCount: arrayCount, 
       })
-      // this.props.history.push('/endgame')
+      this.props.history.push('/endgame')
 
     })
 
@@ -227,6 +228,16 @@ class App extends Component {
             />
           }
         />
+
+          <Route 
+          path="/characterlogin"
+          render={() =>
+            <CharacterLog
+              submitCharacter={this.submitCharacter}
+              data={this.state}
+            />
+          }
+        />  
       
       </div>
       

@@ -104,12 +104,22 @@ app.put("/characters/:id/:name/:killCount", (req, res) => {
       .catch(err => res.status(422).json(err)); 
   })
 
+
+  app.get("/finduser/:username"), (req,res) => {
+    db.User
+        .findOne({username: req.params.username})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err)); 
+}
+
 app.use(express.static(path.join(__dirname, "client", "build")))
 // Routes
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 app.use('/user', user)
+
+
 
 app.use(routes);
 
