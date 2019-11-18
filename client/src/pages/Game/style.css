@@ -36,11 +36,11 @@
   font-family: 'Josefin Sans', sans-serif;
    border-radius: 10px;
    padding: 5px 10px;
-   color: white;
+   color: #000080;
    outline: none;
    margin: 20px;
  }
 
  .btn:hover {
-   color:#000080;
+   color: white;
  }

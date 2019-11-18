@@ -44,8 +44,9 @@ class LoginForm extends Component {
                         
                     })
                     // update the state to redirect to home
-                    this.props.history.push('/characterlogin')
-
+                    this.setState({
+                        redirectTo: '/characterlog'
+                    })
                 }
             }).catch(error => {
                 console.log('login error: ')

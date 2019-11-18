@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import './style.css';
 import Stats from '../../components/Stats';
 import {withRouter} from "react-router";
@@ -6,15 +7,26 @@ import {
     PieChart, Pie, Legend, Tooltip,
 } from 'recharts';
 
-class Endgame extends Component {
-    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
 
+
+
+
+class Endgame extends Component {
     state = {
+        userID: "", //user logged in
+
     }
+    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
+    constuctor() {
+       
+        this.onClick = this.handleRestart.bind(this);
+        //I tried switching these around and making them equal, but it still says can't read prop on line 33
+    }
+
+
 
     componentDidMount() {
         this.props.finishGame(this.props.data.userID, this.props.data.killCount)
-
     }
 
     render() {
@@ -31,7 +43,7 @@ class Endgame extends Component {
 
         return (
             <div>
-                <br />
+                <br></br>
                 <div><Stats data={this.props.data} /></div>
                 <p>How your score compared to other users:</p>
                 <div className="cenPi"><PieChart width={400} height={400}>
@@ -50,10 +62,19 @@ class Endgame extends Component {
                     outerRadius={80} 
                     fill="#82ca9d" /> */}
                     <Tooltip />
-                </PieChart></div>
+                </PieChart>
+                </div>
+                <br />
+                <div>
+                    <button
+                        onClick={this.props.handleRestart}
+                        className="btn">
+                        New Game
+                    </button>
+                </div>
+                
             </div >
         )
     }
 }
-
 export default withRouter(Endgame)
