@@ -55,7 +55,7 @@ class Game extends Component {
                     <br />
                 </div>
                 <br />
-              <div>
+              <div>     
               <audio ref="audio_tag" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls autoPlay/>
    </div>
             </div >
