@@ -6,34 +6,23 @@ import {
     PieChart, Pie, Legend, Tooltip,
 } from 'recharts';
 
-const data01 =
-    // [this.props.data.arrayCount];
-    [
-        { name: 'Group A', value: 200 },
-        { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 },
-        { name: 'Group D', value: 200 },
-        { name: 'Group E', value: 278 },
-        { name: 'Group F', value: 189 },
-    ];
 
 
 
 
 class Endgame extends Component {
+    state = {
+        userID: "", //user logged in
+
+    }
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
     constuctor() {
+       
         this.onClick = this.handleRestart.bind(this);
         //I tried switching these around and making them equal, but it still says can't read prop on line 33
     }
 
-    state = {
-    }
 
-    handleRestart() {
-        this.props.history.push('/characterlog')
-
-    }
 
     componentDidMount() {
         this.props.finishGame(this.props.data.userID, this.props.data.killCount)
@@ -77,7 +66,7 @@ class Endgame extends Component {
                 <br />
                 <div>
                     <button
-                        onClick={this.handleRestart}
+                        onClick={this.props.handleRestart}
                         className="btn">
                         New Game
                     </button>

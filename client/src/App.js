@@ -52,6 +52,13 @@ class App extends Component {
     this.setState(userObject)
   }
 
+
+  handleRestart(event) {
+    event.preventDefault();
+    this.props.history.push('/characterlog')
+
+}
+
   getUser=()=>{
     axios.get('/user/').then(response => {
       console.log('Get user response: ')
@@ -223,6 +230,7 @@ class App extends Component {
             <Endgame
               data={this.state}
               finishGame={this.finishGame}
+              handleRestart={this.handleRestart}
 
             />
           }
