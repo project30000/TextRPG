@@ -85,12 +85,12 @@ class App extends Component {
     })
 
     //first post to database, attaching the logged-in account/state username with it 
-    axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
+    axios.post('/characters/' + this.state.character, {
       name: this.state.character //grab value from form // ,
     }).then(
       data => {
         var characterDataId;
-        axios.get('/characters/' + this.state.userId + "/" + this.state.character).then(response => {
+        axios.get('/characters/' + this.state.character).then(response => {
           characterDataId = response.data._id
           this.setState({
             characterId: characterDataId,

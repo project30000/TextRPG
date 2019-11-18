@@ -60,9 +60,9 @@ app.get("/characters/:id", (req, res) => {
 })
 
 //find character by looking at user id and character name
-app.get("/characters/:id/:name", (req, res) => {
+app.get("/characters/:name", (req, res) => {
     db.Character
-        .findOne({ user_id: req.params.id }, {name: req.params.name })
+        .findOne({ user_id: req.session.user.id }, {name: req.params.name })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 })
@@ -70,7 +70,7 @@ app.get("/characters/:id/:name", (req, res) => {
 app.get("/users/:id", (req, res) => {
     
     db.Character
-        .find({ user_id: req.params.id })
+        .find({ user_id: req.session.user.id })
         .then(dbModel => res.json(dbModel))        
         .catch(err => res.status(422).json(err));
 })
@@ -85,32 +85,24 @@ app.delete("/characters/:id", (req, res) => {
 
 
 //works!!!
-app.post("/characters/:id/:name", (req, res) => {
-    console.log(req.params);
+app.post("/characters/:name", (req, res) => {
+
     db.Character
         .create(req.params)
         .then(dbModel => {
             res.json(dbModel)
-            return db.Character.findOneAndUpdate({ _id: dbModel._id }, { $push: { user_id: req.params.id } }, { new: true })
+            return db.Character.findOneAndUpdate({ _id: dbModel._id }, { $push: { user_id: req.session.user.id } }, { new: true })
         })
         .catch(err => res.status(422).json(err));
 })
 
 
-app.put("/characters/:id/:name/:killCount", (req, res) => {
+app.put("/characters/:name/:killCount", (req, res) => {
     db.Character
-      .findOneAndUpdate(({ user_id: req.params.id}, {name: req.params.name}),{killCount: req.params.killCount})
+      .findOneAndUpdate(({ user_id: req.session.user.id}, {name: req.params.name}),{killCount: req.params.killCount})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err)); 
   })
-
-
-  app.get("/finduser/:username"), (req,res) => {
-    db.User
-        .findOne({username: req.params.username})
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err)); 
-}
 
 app.use(express.static(path.join(__dirname, "client", "build")))
 // Routes
