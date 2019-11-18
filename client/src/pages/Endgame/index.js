@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './style.css';
 import Stats from '../../components/Stats';
 import {
@@ -25,13 +25,13 @@ class Endgame extends Component {
     constuctor() {
         this.onClick = this.handleRestart.bind(this);
         //I tried switching these around and making them equal, but it still says can't read prop on line 33
-      }
+    }
 
     state = {
     }
 
     handleRestart() {
-        this.props.history.push('/game')
+        this.props.history.push('/characterlog')
 
     }
 
@@ -53,14 +53,7 @@ class Endgame extends Component {
 
         return (
             <div>
-                 <div>
-                    <button
-                        onClick={this.handleRestart}
-                        className="btn">
-                        New Game
-                    </button>
-                </div>
-                <br />
+                <br></br>
                 <div><Stats data={this.props.data} /></div>
                 <p>How your score compared to other users:</p>
                 <div className="cenPi"><PieChart width={400} height={400}>
@@ -80,10 +73,18 @@ class Endgame extends Component {
                     fill="#82ca9d" /> */}
                     <Tooltip />
                 </PieChart>
-
+                </div>
+                <br />
+                <div>
+                    <button
+                        onClick={this.handleRestart}
+                        className="btn">
+                        New Game
+                    </button>
+                </div>
+                
             </div >
         )
     }
 }
-
 export default withRouter(Endgame)
