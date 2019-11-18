@@ -4,7 +4,7 @@ import './style.css';
 import dialog from './dialog.json';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
-import {withRouter} from "react-router"
+import { withRouter } from "react-router"
 
 class Game extends Component {
     state = {
@@ -54,9 +54,10 @@ class Game extends Component {
                     <br />
                 </div>
                 <br />
-              <div>
-              <audio ref="audio_tag" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls autoPlay/>
-   </div>
+                {/* <div>
+                    <audio ref="audio_tag" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls autoPlay />
+                </div> */}
+
             </div >
         )
     }
