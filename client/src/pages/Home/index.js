@@ -37,7 +37,7 @@ class Home extends Component {
                             <div class="title">
                                 <h1>Wake up.....</h1>
                                 <hr></hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p>Explore your day. And adventure that can take you nowhere or somewhere. Choose the faith for your day. </p>
                             </div>
                         </div>
                         <div class="parallax__layer parallax__layer--back">
@@ -54,11 +54,11 @@ class Home extends Component {
                             <img src="https://live.staticflickr.com/65535/49081549446_9e74d07c10_k.jpg"></img>
                         </div>
                     </div>
-                    <div id="group4" class="parallax__group">
+                    {/* <div id="group4" class="parallax__group">
                         <div class="parallax__layer parallax__layer--base">
-                        </div>
-                        <div class="parallax__layer parallax__layer--back">
-
+                        </div> */}
+                        {/* <div class="parallax__layer parallax__layer--back"> */}
+{/* 
 
                             <h1>Are you ready to wake up?</h1>
                             <hr></hr>
@@ -67,12 +67,12 @@ class Home extends Component {
                             <div class= "homeloginsign">
                             <button class="loginhome" type="submit" formaction="/login">Login</button>
                             <button formaction="/sign-up">Sign Up</button>
-                            </div>
+                            </div> */}
 
+                        {/* </div> */}
+                        {/* <div class="parallax__layer parallax__layer--deep">
                         </div>
-                        <div class="parallax__layer parallax__layer--deep">
-                        </div>
-                    </div>
+                    </div> */}
                     <div id="group5" class="parallax__group">
                         <div class="parallax__layer parallax__layer--fore">
                             <img src="https://live.staticflickr.com/65535/49081693542_70757cb03e_k.jpg"></img>
