@@ -5,12 +5,16 @@ import Stats from '../../components/Stats';
 import {
     PieChart, Pie, Legend, Tooltip,
 } from 'recharts';
+import { Link } from 'react-router-dom'
+
 
 
 
 
 
 class Endgame extends Component {
+    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
+
     constructor() {
         super()
         this.state = {
@@ -41,7 +45,12 @@ class Endgame extends Component {
             ]
         return (
             <div>
-                <br></br>
+                <div>
+                    <Link to="/game" className="btn btn-link text-secondary">
+                        <button className="btnShaken">New Game</button>
+                    </Link>
+                </div>
+                <br />
                 <div><Stats data={this.props.data} /></div>
                 <p>How your score compared to other users:</p>
                 <div className="cenPi"><PieChart width={400} height={400}>
@@ -51,26 +60,9 @@ class Endgame extends Component {
                         data={data01}
                         cx={200} cy={200}
                         outerRadius={150} fill="#228B22"
-                        label />
-                    {/* <Pie 
-                    dataKey="value" 
-                    data={data02} 
-                    cx={500} cy={200} 
-                    innerRadius={40} 
-                    outerRadius={80} 
-                    fill="#82ca9d" /> */}
+                        label /></PieChart>
                     <Tooltip />
-                </PieChart>
-                </div>
-                <br />
-                <div>
-                    <button
-                        onClick={this.handleRestart}
-                        className="btn">
-                        New Game
-                    </button>
-                </div>
-
+                </div >
             </div >
         )
     }

@@ -76,7 +76,6 @@
                 "killcount": 2,
                 "nextText": 6
             }
-            
         ]
     },
     {
@@ -93,7 +92,6 @@
                 "text": "4C (no kill)",
                 "killcount": 0,
                 "nextText": 7
-
             }
         ]
     },
@@ -111,7 +109,6 @@
                 "text": "5B (no kill)",
                 "killcount": 3,
                 "nextText": 9
-
             }
         ]
     },
@@ -131,13 +128,10 @@
                 "kill": true,
                 "nextText": 9
             },
-            
-            
             {
                 "text": "5C (no kill)",
                 "killcount": 1,
                 "nextText": 10
-
             }
         ]
     },
@@ -155,7 +149,6 @@
                 "text": "5D (no kill)",
                 "killcount": 0,
                 "nextText": 11
-
             }
         ]
     },
@@ -401,7 +394,7 @@
     },
     {
         "id": 23,
-        "text": "Well, we can't just let you walk out of here. There is a lesson to be learned.",
+        "text": "Unfortunately we can't just let you walk out of here. There is a lesson to be learned.",
         "options": [
             {
                 "text": "Fine, I'll play along.",
@@ -459,6 +452,16 @@
                 "nextText": 27
             },
             {
+                "text": "Not really, but I guess I have no choice.",
+                "killcount": 0,
+                "nextText": 27
+            },
+            {
+                "text": "Not really, but I guess I have no choice.",
+                "killcount": 1,
+                "nextText": 27
+            },
+            {
                 "text": "<observe the host for weak points>",
                 "killcount": 1,
                 "nextText": 28
@@ -471,44 +474,48 @@
             {
                 "text": "<attack, again>",
                 "killcount": 2,
-                "nextText": 29
+                "nextText": 25
             }
         ]
     },
     {
         "id": 27,
-        "text": "What would happen if Pinnochio said, 'My nose will now grow'?",
+        "text": "If a machine is designed that could have free will, memories, self-awareness.. what differentiates it from yourself?",
         "options": [
             {
-                "text": "It would grow?",
-                "killcount": 0,
-                "nextText": 30
-            },
-            {
-                "text": "It would grow?",
-                "killcount": 1,
-                "nextText": 30
-            },
-            {
-                "text": "Nothing would happen..",
+                "text": "It's a machine! It's full of bolts and screws.",
                 "killcount": 0,
                 "nextText": 31
             },
             {
-                "text": "Nothing would happen..",
+                "text": "It's a machine! It's full of bolts and screws.",
                 "killcount": 1,
                 "nextText": 31
             },
             {
-                "text": "The world ends.",
+                "text": "I guess we couldn't tell.",
                 "killcount": 0,
                 "nextText": 32
             },
             {
+                "text": "I guess we couldn't tell.",
+                "killcount": 1,
+                "nextText": 32
+            },
+            {
+                "text": "<observe the host>",
+                "killcount": 0,
+                "nextText": 28
+            },
+            {
                 "text": "<attack>",
                 "killcount": 1,
-                "kill": true,
-                "nextText": 29
+                "nextText": 24
+            },
+            {
+                "text": "<attack>",
+                "killcount": 2,
+                "nextText": 25
             }
         ]
     },
@@ -516,6 +523,17 @@
         "id": 28,
         "text": "<you spot the host is a computer, plugged into a wall>",
         "options": [
+            {
+                "text": "<stall> But first, can I ask YOU a question?",
+                "killcount": 0,
+                "nextText": 30
+            },
+            {
+                "text": "<do nothing>",
+                "killcount": 0,
+                "kill": true,
+                "nextText": 27
+            },
             {
                 "text": "<pull the plug>",
                 "killcount": 1,
@@ -540,60 +558,122 @@
     },
     {
         "id": 29,
-        "text": "<you destroy the host>",
+        "text": "Wait, wait what are y-<you destroy the host, the screen sputters and goes black>",
         "options": [
             {
                 "text": "End.",
                 "killcount": 1,
-                "end": true            
+                "end": true
             },
             {
                 "text": "End.",
                 "killcount": 2,
-                "end": true            
+                "end": true
             }
         ]
     },
     {
         "id": 30,
-        "text": "But Pinnochio's nose only grows when he's lying, saying 'My nose will now grow' is the truth.. We might have you keep you here for more tests.",
+        "text": "Hm. This is peculiar, most vict- test subjects do not request it. But very well, what is on your mind?",
         "options": [
             {
-                "text": "See your score.",
+                "text": "What would happen if Pinnochio announced, 'And now, my nose will grow!'",
                 "killcount": 0,
-                "end": true            
+                "nextText": 34
             },
             {
-                "text": "See your score.",
+                "text": "What would happen if Pinnochio announced, 'And now, my nose will grow!'",
                 "killcount": 1,
-                "end": true            
+                "nextText": 34
             }
         ]
     },
     {
         "id": 31,
-        "text": "How would nothing happen, if Pinnochio's nose grows when he lies? And clearly his nose is not growing, as he claims. We might have you keep you here for more tests.",
+        "text": "It? How are you so certain YOU are not the one made of 'bolts and screws'? I think we will be holding you here for deeper testing. <the host exits, the room goes black>",
         "options": [
             {
                 "text": "See your score.",
                 "killcount": 0,
-                "end": true            
+                "end": true
             },
             {
                 "text": "See your score.",
                 "killcount": 1,
-                "end": true            
+                "end": true
+            },
+            {
+                "text": "See your score.",
+                "killcount": 2,
+                "end": true
             }
         ]
     },
     {
         "id": 32,
-        "text": "That's... interesting. The Pinocchio paradox might end the world. You are free to go.",
+        "text": "Astute observation. If either of us was a machine, could you tell?",
+        "options": [
+            {
+                "text": "Do you make up these questions yourself, Mr. Host?",
+                "killcount": 0,
+                "nextText": 33
+            },
+            {
+                "text": "Could I ask you a question?",
+                "killcount": 0,
+                "nextText": 30
+            },
+            {
+                "text": "Do you make up these questions yourself, Mr. Host?",
+                "killcount": 1,
+                "nextText": 33
+            },
+            {
+                "text": "Could I ask you a question?",
+                "killcount": 1,
+                "nextText": 30
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "text": "I see you fail to cooperate. I think we will be holding you here for deeper testing. <the host exits, the room goes black>",
         "options": [
             {
                 "text": "See your score.",
                 "killcount": 0,
-                "end": true            
+                "end": true
+            },
+            {
+                "text": "See your score.",
+                "killcount": 1,
+                "end": true
+            },
+            {
+                "text": "See your score.",
+                "killcount": 2,
+                "end": true
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "text": "Simple. His nose wou- wait, it would be the truth so- <the host grows visibly more and more frustrated. it overheats and shuts down>",
+        "options": [
+            {
+                "text": "See your score.",
+                "killcount": 0,
+                "end": true
+            },
+            {
+                "text": "See your score.",
+                "killcount": 1,
+                "end": true
+            },
+            {
+                "text": "See your score.",
+                "killcount": 2,
+                "end": true
             }
         ]
     }
