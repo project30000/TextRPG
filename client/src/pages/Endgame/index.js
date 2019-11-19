@@ -5,6 +5,8 @@ import Stats from '../../components/Stats';
 import {
     PieChart, Pie, Legend, Tooltip,
 } from 'recharts';
+import { Link } from 'react-router-dom'
+
 
 const data01 =
     // [this.props.data.arrayCount];
@@ -54,11 +56,9 @@ class Endgame extends Component {
         return (
             <div>
                 <div>
-                    <button
-                        onClick={this.handleRestart}
-                        className="btn">
-                        New Game
-                    </button>
+                    <Link to="/game" className="btn btn-link text-secondary">
+                        <button className="btnShaken">New Game</button>
+                    </Link>
                 </div>
                 <br />
                 <div><Stats data={this.props.data} /></div>
