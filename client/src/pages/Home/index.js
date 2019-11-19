@@ -31,7 +31,7 @@ class Home extends Component {
                                 Go on an adventure that changes based on your choices.
                                 Where will your path take you?
                                     </p>
-                                <Link to="/game" className="btn btn-link text-secondary">
+                                <Link to="/login" className="btn btn-link text-secondary">
                                     <span className="text-secondary">Play Now</span>
                                 </Link>                            
                                 </div>
