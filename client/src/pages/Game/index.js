@@ -11,7 +11,7 @@ import axios from"axios";
 class Game extends Component {
     state = {
         dialog: dialog,
-        currentLine: dialog[19] //game init at first line
+        currentLine: dialog[19], //game init at first line
         character: "",
         characterId: "",
         killCount: 0,
