@@ -44,7 +44,7 @@ class Endgame extends Component {
         return (
             <div>
                 <div>
-                    <Link to="/game" className="btn btn-link text-secondary">
+                    <Link to="/characterlog" className="btn btn-link text-secondary">
                         <button className="btnShaken2">New Game</button>
                     </Link>
                 </div>
@@ -58,7 +58,8 @@ class Endgame extends Component {
                         data={data01}
                         cx={200} cy={200}
                         outerRadius={150} fill="#228B22"
-                        label /></PieChart>
+                        label />
+                    </PieChart>
                     <Tooltip />
                 </div >
             </div >
