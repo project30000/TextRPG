@@ -52,7 +52,7 @@ app.get("/characters", (req, res) => {
         .catch(err => res.status(422).json(err));
 })
 
-app.get("/characters/:id", (req, res) => {
+app.get("/characters/id/:id", (req, res) => {
     db.Character
         .findById({ _id: req.params.id })
         .then(dbModel => res.json(dbModel))
@@ -62,15 +62,16 @@ app.get("/characters/:id", (req, res) => {
 //find character by looking at user id and character name
 app.get("/characters/:name", (req, res) => {
     db.Character
-        .findOne({ user_id: req.session.user.id }, {name: req.params.name })
+        .findOne({name: req.params.name})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
 })
+
 // get user characters
-app.get("/users/:id", (req, res) => {
+app.get("/userscore", (req, res) => {
     
     db.Character
-        .find({ user_id: req.session.user.id })
+        .find({ user_id: req.session.passport.user._id })
         .then(dbModel => res.json(dbModel))        
         .catch(err => res.status(422).json(err));
 })
@@ -83,15 +84,20 @@ app.delete("/characters/:id", (req, res) => {
         .catch(err => res.status(422).json(err));
 })
 
-
 //works!!!
 app.post("/characters/:name", (req, res) => {
+    console.log("user id")
+    console.log(req.session.passport.user._id)
+    newCharater = {
+        name: req.params.name, 
+        user_id: req.session.passport.user._id
+    }
 
     db.Character
-        .create(req.params)
+        .create(newCharater)
         .then(dbModel => {
             res.json(dbModel)
-            return db.Character.findOneAndUpdate({ _id: dbModel._id }, { $push: { user_id: req.session.user.id } }, { new: true })
+            // return db.Character.findOneAndUpdate({ _id: dbModel._id }, { $push: { user_id: req.session.user.id } }, { new: true })
         })
         .catch(err => res.status(422).json(err));
     
@@ -100,7 +106,7 @@ app.post("/characters/:name", (req, res) => {
 
 app.put("/characters/:name/:killCount", (req, res) => {
     db.Character
-      .findOneAndUpdate(({ user_id: req.session.user.id}, {name: req.params.name}),{killCount: req.params.killCount})
+      .findOneAndUpdate(({ user_id: req.session.passport.user._id}, {name: req.params.name}),{killCount: req.params.killCount})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err)); 
   })

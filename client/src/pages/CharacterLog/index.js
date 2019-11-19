@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import axios from 'axios'
 import './style.css';
+import { withRouter } from "react-router";
 
 
 class CharacterLog extends Component {
@@ -60,4 +61,4 @@ class CharacterLog extends Component {
     }
 }
 
-export default CharacterLog
+export default withRouter(CharacterLog)

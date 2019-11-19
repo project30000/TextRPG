@@ -11,34 +11,29 @@ import {
 
 
 class Endgame extends Component {
-    state = {
+    constructor() {
+        super()
+        this.state = {
+        }
+        this.handleRestart = this.handleRestart.bind(this);
 
     }
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
-    constuctor() {
-       
-        this.onClick = this.props.handleRestart.bind(this);
-        //I tried switching these around and making them equal, but it still says can't read prop on line 33
-    }
-
-
 
     componentDidMount() {
-        this.props.finishGame(this.props.data.userID, this.props.data.killCount)
+
     }
 
-    render() {
-        const data01 =
-            // [this.props.data.arrayCount];
-            [
-                { name: 'Ending 1', value: 5 },
-                { name: 'Ending 2', value: 8 },
-                { name: 'Ending 3', value: 10 },
-                { name: 'Ending 4', value: 9 },
-                { name: 'Ending 5', value: 3 },
-                { name: 'Ending 6', value: 1 },
-            ];
+    handleRestart() {
+        this.props.history.push('/characterlog')
+    }
 
+
+    render() {
+        // console.log("render array")
+        // console.log(this.props.data.arrayCount)
+        const data01 =
+            [this.props.data.arrayCount];
         return (
             <div>
                 <br></br>
@@ -65,12 +60,12 @@ class Endgame extends Component {
                 <br />
                 <div>
                     <button
-                        onClick={this.props.handleRestart}
+                        onClick={this.handleRestart}
                         className="btn">
                         New Game
                     </button>
                 </div>
-                
+
             </div >
         )
     }
