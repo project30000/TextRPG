@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import './style.css';
 import Stats from '../../components/Stats';
-import {withRouter} from "react-router";
 import {
     PieChart, Pie, Legend, Tooltip,
 } from 'recharts';
@@ -13,13 +12,12 @@ import {
 
 class Endgame extends Component {
     state = {
-        userID: "", //user logged in
 
     }
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
     constuctor() {
        
-        this.onClick = this.handleRestart.bind(this);
+        this.onClick = this.props.handleRestart.bind(this);
         //I tried switching these around and making them equal, but it still says can't read prop on line 33
     }
 

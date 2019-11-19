@@ -94,6 +94,7 @@ app.post("/characters/:name", (req, res) => {
             return db.Character.findOneAndUpdate({ _id: dbModel._id }, { $push: { user_id: req.session.user.id } }, { new: true })
         })
         .catch(err => res.status(422).json(err));
+    
 })
 
 

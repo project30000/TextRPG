@@ -8,28 +8,19 @@ class CharacterLog extends Component {
     
     constructor() {
         super()
-        this.state = {
-            loggedIn: false,
-            username: null,
-            userId: null,
-            killCount: 0,
-            character: "",
-            characterId: null,
-            userAverage: null,
-            arrayCount: null,
+        this.state= {
+            loggedIn: true,
+            character: ""
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
 
     }
     componentDidMount() {
-        
-        this.setState({
-            username: this.props.username,
-            userId: this.props.userId
-        })
     }
-    handlSubmit = () => {
+    handleSubmit = () => {
+        console.log('handleSubmit')
         this.props.submitCharacter(this.state.character);
     }
     handleChange(event) {
@@ -48,17 +39,19 @@ class CharacterLog extends Component {
                             <label className="form-label" htmlFor="charName">Name</label>
                         </div>
                         <div className="col-3 col-mr-auto">
-                            <input className="form-input"          id="character" 
+                            <input className="form-input"         
                                 placeholder="i.e. Alozy the Barbarian" 
-                                type="character"
+                                type="text"
                                 name="character"
-                                value={this.state.character} onChange={this.handleChange} />
+                                value={this.state.character} 
+                                onChange={this.handleChange} />
                         </div>
                     </div>
 
                     <div className="form-group ">
                         <div className="col-7"></div>
-                        <button className="btn btn-primary col-1 col-mr-auto" onClick={this.handleSubmit}
+                        <button className="btn btn-primary col-1 col-mr-auto" 
+                            onClick={this.handleSubmit}
                             type="submit">Create!</button>
                     </div>
                 </form>

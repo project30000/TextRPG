@@ -85,26 +85,29 @@ class App extends Component {
 
   // on submit --> initializing game 
   submitCharacter=(character)=>{
-    //state is current user's username 
-    this.setState({
-      killCount: 0,
-      character: character, // from forum 
-    })
+    console.log("hello " + character)
+
+    // //state is current user's username 
+    // this.setState({
+    // //   killCount: 0,
+    //   character: character, // from forum 
+    // })
 
     //first post to database, attaching the logged-in account/state username with it 
-    axios.post('/characters/' + this.state.character, {
-      name: this.state.character //grab value from form // ,
-    }).then(
-      data => {
-        var characterDataId;
-        axios.get('/characters/' + this.state.character).then(response => {
-          characterDataId = response.data._id
-          this.setState({
-            characterId: characterDataId,
-          })
-        })
+    axios.post('/characters/' + character, {
+      name: character //grab value from form // ,
+    })
+    // .then(
+    //   data => {
+    //     // var characterDataId;
+    //     // axios.get('/characters/' + this.state.character).then(response => {
+    //     //   characterDataId = response.data._id
+    //     //   this.setState({
+    //     //     characterId: characterDataId,
+    //     //   })
+    //     // })
 
-      })
+    //   })
 
   }
 
@@ -238,7 +241,7 @@ class App extends Component {
         />
 
           <Route 
-          path="/characterlogin"
+          path="/characterlog"
           render={() =>
             <CharacterLog
               submitCharacter={this.submitCharacter}
