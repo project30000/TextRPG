@@ -62,7 +62,7 @@ class Navbar extends Component {
                                     <button className="btnShaken">Login</button>
                                     </Link>
                                     <Link to="/signup" className="btn btn-link">
-                                    <button className="btnShake">sign up!</button>
+                                    <button className="btnShake">Sign Up</button>
                                     </Link>
                                 </section>
                             )}

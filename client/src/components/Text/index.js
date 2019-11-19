@@ -4,7 +4,7 @@ import 'react-typist/dist/Typist.css';
 
 
 const Text = props => (
-    <p className="text">{props.text}</p>
+    <p className="textee">{props.text}</p>
 )
 
 export default Text

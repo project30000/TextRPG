@@ -11,8 +11,7 @@ import axios from"axios";
 class Game extends Component {
     state = {
         dialog: dialog,
-        currentLine: dialog[18], //game init at first line
-
+        currentLine: dialog[19] //game init at first line
         character: "",
         characterId: "",
         killCount: 0,
@@ -45,6 +44,10 @@ class Game extends Component {
     }
 
     componentDidMount() {
+        API.getMyDude(this.props.username).then(myDude => {
+            // this.setState({userID: myDude})
+        })
+        this.setState({ currentLine: dialog[19] })
         // API.getMyDude(this.props.username).then(myDude => {
         //     this.setState({userID: myDude})
         // })
