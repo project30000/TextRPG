@@ -10,7 +10,7 @@ class Game extends Component {
     state = {
         userID: "", //user logged in
         dialog: dialog,
-        currentLine: dialog[18] //game init at first line
+        currentLine: dialog[19] //game init at first line
     }
 
     handleClick = (nextText, op, end) => {
@@ -31,7 +31,7 @@ class Game extends Component {
         API.getMyDude(this.props.username).then(myDude => {
             // this.setState({userID: myDude})
         })
-        this.setState({ currentLine: dialog[18] })
+        this.setState({ currentLine: dialog[19] })
     }
 
     render() {

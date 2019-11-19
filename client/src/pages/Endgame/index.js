@@ -25,7 +25,7 @@ class Endgame extends Component {
     constuctor() {
         this.onClick = this.handleRestart.bind(this);
         //I tried switching these around and making them equal, but it still says can't read prop on line 33
-      }
+    }
 
     state = {
     }
@@ -53,7 +53,7 @@ class Endgame extends Component {
 
         return (
             <div>
-                 <div>
+                <div>
                     <button
                         onClick={this.handleRestart}
                         className="btn">
@@ -70,17 +70,9 @@ class Endgame extends Component {
                         data={data01}
                         cx={200} cy={200}
                         outerRadius={150} fill="#228B22"
-                        label />
-                    {/* <Pie 
-                    dataKey="value" 
-                    data={data02} 
-                    cx={500} cy={200} 
-                    innerRadius={40} 
-                    outerRadius={80} 
-                    fill="#82ca9d" /> */}
+                        label /></PieChart>
                     <Tooltip />
-                </PieChart>
-
+                </div >
             </div >
         )
     }

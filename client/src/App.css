@@ -1,8 +1,8 @@
 .btnShake {
-background-color: #111111;
-color: #ffffff;
-border-color: #111111;
-border-radius: 8px;
+  background-color: #111111;
+  color: #ffffff;
+  border-color: #111111;
+  border-radius: 8px;
 }
 
 .btnShaken {
@@ -10,40 +10,58 @@ border-radius: 8px;
   color: purple;
   border-color: #111111;
   border-radius: 10px;
-  }
+}
 
 .btnShake:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 1.25s;
-
   /* When the animation is finished, start again */
   animation-iteration-count: infinite;
 }
 
 .btnShaken:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
-
   animation: shake 1.05s;
-
-
   /* When the animation is finished, start again */
   animation-iteration-count: infinite;
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
-  
+
 .App {
   text-align: center;
   background-color: #111111;
@@ -71,10 +89,10 @@ border-radius: 8px;
 
 .navbar {
   height: 100px;
- background-color: black;
+  background-color: black;
   margin-top: auto;
-  
 }
+
 #top-filler {
   margin-bottom: auto;
 }
@@ -83,27 +101,27 @@ border-radius: 8px;
   align-items: flex-end;
 }
 
-#form-horizontal{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+#form-horizontal {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 40%;
 }
-
 
 .wrap-login100 {
   margin: auto;
   width: 680px;
   background: #666;
   position: center;
-  color:white;
+  color: white;
   text-align: center;
   border-radius: 10px;
+}
 
+.form-label {
+  align-content: inherit;
+  left: 20px;
 }
-.form-label{
-align-content: inherit;
-left: 20px;
-}
+
 ul {
   display: inline-grid;
   grid-auto-flow: row;
@@ -135,21 +153,19 @@ li:last-child {
   color: white;
 }
 
-li:hover ~ li p {
+li:hover~li p {
   animation: wave-animation 0.3s infinite;
 }
 
 /* below is just for demo styling */
 
 div {
- 
   line-height: 1.0;
   font-family: Menlo, monospace;
 }
 
 @keyframes wave-animation {
-  0%,
-  100% {
+  0%, 100% {
     transform: rotate(0deg);
   }
   25% {
@@ -165,60 +181,65 @@ div {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 } */
- /* Parallax base styles
+
+/* Parallax base styles
            --------------------------------------------- */
-         
-           .parallax {
-            height: 500px; /* fallback for older browsers */
-            height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            -webkit-perspective: 300px;
-            perspective: 300px;
-            background-attachment: scroll;
-          }
-        
-          .parallax__group {
-            position: relative;
-            height: 500px; /* fallback for older browsers */
-            height: 100vh;
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-          }
-          .parallax__layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-          }
-          .parallax__layer--fore {
-            -webkit-transform: translateZ(90px) scale(.7);
-            transform: translateZ(90px) scale(.7);
-            z-index: 1;
-          }
-        
-          .parallax__layer--base {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            z-index: 4;
-          }
-        
-          .parallax__layer--back {
-            -webkit-transform: translateZ(-300px) scale(2);
-            transform: translateZ(-300px) scale(2);
-            z-index: 3;
-          }
-        
-          .parallax__layer--deep {
-            -webkit-transform: translateZ(-600px) scale(3);
-            transform: translateZ(-600px) scale(3);
-            z-index: 2;
-          }
-        
-        
-          /* Debugger styles - used to show the effect
+
+.parallax {
+  height: 500px;
+  /* fallback for older browsers */
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+  background-attachment: scroll;
+}
+
+.parallax__group {
+  position: relative;
+  height: 500px;
+  /* fallback for older browsers */
+  height: 100vh;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallax__layer--fore {
+  -webkit-transform: translateZ(90px) scale(.7);
+  transform: translateZ(90px) scale(.7);
+  z-index: 1;
+}
+
+.parallax__layer--base {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 4;
+}
+
+.parallax__layer--back {
+  -webkit-transform: translateZ(-300px) scale(2);
+  transform: translateZ(-300px) scale(2);
+  z-index: 3;
+}
+
+.parallax__layer--deep {
+  -webkit-transform: translateZ(-600px) scale(3);
+  transform: translateZ(-600px) scale(3);
+  z-index: 2;
+}
+
+/* Debugger styles - used to show the effect
           --------------------------------------------- */
+
 /*         
           .debug {
             position: fixed;
@@ -230,7 +251,8 @@ div {
             padding: .5em;
             border-radius: 0 0 5px 5px;
           } */
-          /* .debug-on .parallax__group {
+
+/* .debug-on .parallax__group {
             -webkit-transform: translate3d(800px, 0, -800px) rotateY(30deg);
             transform: translate3d(700px, 0, -800px) rotateY(30deg);
          }
@@ -242,148 +264,169 @@ div {
             -webkit-transition: -webkit-transform 0.5s;
             transition: transform 0.5s;
           } */
-        
-        
-          /* demo styles
+
+/* demo styles
           --------------------------------------------- */
-        
-          body, html {
-            overflow: hidden;
-            background-color: #111111;
-          }
-        
-          body {
-            font: 100% / 1.5 Arial;
-            font-family: Arial, Helvetica, sans-serif;
-          }
-      
-          * {
-            margin:0;
-            padding:0;
-          }
-        
-          .parallax {
-            font-size: 200%;
-          }
-        
-           /* centre the content in the parallax layers */
-          .title {
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-          }
-        
-        
-        
-          /* style the groups
+
+body, html {
+  overflow: hidden;
+  background-color: #111111;
+}
+
+body {
+  font: 100% / 1.5 Arial;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.parallax {
+  font-size: 200%;
+}
+
+/* centre the content in the parallax layers */
+
+.title {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* style the groups
           --------------------------------------------- */
-          img {
-            width: 1400;
-            height: 800px;
-          }
+
+img {
+  width: 1400;
+  height: 800px;
+}
+
 /* _______________________________________________________ */
-          #group1 {
-            z-index: 2; /* slide over group 2 */
-            /* content:url(https://i.ibb.co/XxYV7pB/picturebackground2.jpg); */
-            /* align-content: center; */
-          }
-          #group1 .parallax__layer--base {
-            background:#111111;
-          
-          }
-        
-          #group2 {
-            z-index: 3; /* slide under groups 1 and 3 */
-            color: white;
-          }
-          #group2 .parallax__layer--back {
-            background: #111111;
-          }
-        
-          #group3 {
-            z-index: 4; /* slide over group 2 and 4 */
-          }
-          #group3 .parallax__layer--base {
-            background: #111111;
-          }
-          /* #auto{
+
+#group1 {
+  z-index: 2;
+  /* slide over group 2 */
+  /* content:url(https://i.ibb.co/XxYV7pB/picturebackground2.jpg); */
+  /* align-content: center; */
+}
+
+#group1 .parallax__layer--base {
+  background: #111111;
+}
+
+#group2 {
+  z-index: 3;
+  /* slide under groups 1 and 3 */
+  color: white;
+}
+
+#group2 .parallax__layer--back {
+  background: #111111;
+}
+
+#group3 {
+  z-index: 4;
+  /* slide over group 2 and 4 */
+}
+
+#group3 .parallax__layer--base {
+  background: #111111;
+}
+
+/* #auto{
             color: white;
           } */
-          #group4 {
-            z-index: 2; /* slide under group 3 and 5 */
-            color: white;
-          }
-          #group4 .parallax__layer--deep {
-            background: #111111;
-            color: white;
-            
-          }
-        
-          #group5 {
-            z-index: 3; /* slide over group 4 and 6 */
-            height: 80%;
-          }
-          #group5 .parallax__layer--base {
-            background: #111111;
-          }
-        
-          #group6 {
-            z-index: 2; /* slide under group 5 and 7 */
-            height: 80%;
-          }
-          #group6 .parallax__layer--back {
-            background: #111111;
-            /* height:70%; */
-          }
-        
-          #group7 {
-            z-index: 3; /* slide over group 7 */
-            height: 25%;
-            align-content: center;
-          }
-          #group7 .parallax__layer--base {
-            background: rgb(56, 44, 110);
-            font-size: 25px;
-            color: white;
-          }
-          
-          #homeloginsign{
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-          }
-          #loginhome{
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-          }
-          .button {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-          }
-        
-          /* misc
+
+#group4 {
+  z-index: 2;
+  /* slide under group 3 and 5 */
+  color: white;
+}
+
+#group4 .parallax__layer--deep {
+  background: #111111;
+  color: white;
+}
+
+#group5 {
+  z-index: 3;
+  /* slide over group 4 and 6 */
+  height: 80%;
+}
+
+#group5 .parallax__layer--base {
+  background: #111111;
+}
+
+#group6 {
+  z-index: 2;
+  /* slide under group 5 and 7 */
+  height: 80%;
+}
+
+#group6 .parallax__layer--back {
+  background: #111111;
+  /* height:70%; */
+}
+
+#group7 {
+  z-index: 3;
+  /* slide over group 7 */
+  height: 25%;
+  align-content: center;
+}
+
+#group7 .parallax__layer--base {
+  background: rgb(56, 44, 110);
+  font-size: 25px;
+  color: white;
+}
+
+#homeloginsign {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#loginhome {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button {
+  background-color: #4CAF50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* misc
           --------------------------------------------- */
-          /* .demo__info {
+
+/* .demo__info {
             position: absolute;
             z-index:100;
             bottom: 1vh;
