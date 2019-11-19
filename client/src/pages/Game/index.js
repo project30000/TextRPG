@@ -12,7 +12,6 @@ class Game extends Component {
     state = {
         dialog: dialog,
         currentLine: dialog[18], //game init at first line
-
         character: "",
         characterId: "",
         killCount: 0,
@@ -44,8 +43,7 @@ class Game extends Component {
     })
     }
 
-    componentDidMount() {
-        // API.getMyDude(this.props.username).then(myDude => {
+    componentDidMount() {        // API.getMyDude(this.props.username).then(myDude => {
         //     this.setState({userID: myDude})
         // })
         this.getCharacter()

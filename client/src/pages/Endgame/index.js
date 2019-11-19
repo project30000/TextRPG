@@ -35,9 +35,9 @@ class Endgame extends Component {
        
         const data01 =
             [
-                // { name: "Ending 1", value: this.props.data.arrayCount[1] },
-                // { name: "Ending 2", value: this.props.data.arrayCount[1] },
-                // { name: "Ending 3", value: this.props.data.arrayCount[2] }
+                { name: "Ending 1", value: 1},
+                { name: "Ending 2", value: 1 },
+                { name: "Ending 3", value: 2 }
             ]
         return (
             <div>
