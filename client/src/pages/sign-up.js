@@ -55,7 +55,7 @@ class Signup extends Component {
 				<h4>Sign up</h4>
 				<form className="form-horizontal">
 					<div className="form-group">
-						<div className="col-1 col-ml-auto">
+						<div className="col-2 col-ml-auto">
 							<label className="form-label" htmlFor="username">Username</label>
 						</div>
 						<div className="col-3 col-mr-auto">
@@ -70,7 +70,7 @@ class Signup extends Component {
 						</div>
 					</div>
 					<div className="form-group">
-						<div className="col-1 col-ml-auto">
+						<div className="col-2 col-ml-auto">
 							<label className="form-label" htmlFor="password">Password: </label>
 						</div>
 						<div className="col-3 col-mr-auto">
@@ -86,7 +86,7 @@ class Signup extends Component {
 					<div className="form-group ">
 						<div className="col-7"></div>
 						<button
-							className="btn btn-primary col-1 col-mr-auto"
+							className="btn btn-primary col-2 col-mr-auto"
 							onClick={this.handleSubmit}
 							type="submit"
 						>Sign up</button>

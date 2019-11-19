@@ -42,7 +42,7 @@ class Endgame extends Component {
             <div>
                 <div>
                     <Link to="/game" className="btn btn-link text-secondary">
-                        <button className="btnShaken">New Game</button>
+                        <button className="btnShaken2">New Game</button>
                     </Link>
                 </div>
                 <br />
