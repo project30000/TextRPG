@@ -18,10 +18,11 @@
    border-radius: 10px;
    box-shadow: 0 0 10px 2px;
    grid-template-columns: repeat(2, auto);
- }
-
- .textee {
-  font-family: 'Play', sans-serif;
+  }
+  
+  .textee {
+    color: #666666;
+    font-family: 'Play', sans-serif;
   font-size: large;
 
 }
@@ -38,3 +39,4 @@
  .btn:hover {
    color: #000080;
  }
+ 

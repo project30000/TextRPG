@@ -10,6 +10,10 @@
   }
    */
 
+   *{
+     color:white;
+   }
+
  .container {
   width: 500px;
    max-width: 50%;
