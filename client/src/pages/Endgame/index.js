@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './style.css';
 import Stats from '../../components/Stats';
 import {
@@ -8,51 +8,36 @@ import {
 import { Link } from 'react-router-dom'
 
 
-const data01 =
-    // [this.props.data.arrayCount];
-    [
-        { name: 'Group A', value: 200 },
-        { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 },
-        { name: 'Group D', value: 200 },
-        { name: 'Group E', value: 278 },
-        { name: 'Group F', value: 189 },
-    ];
 
 
 
 
 class Endgame extends Component {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
-    constuctor() {
-        this.onClick = this.handleRestart.bind(this);
-        //I tried switching these around and making them equal, but it still says can't read prop on line 33
-    }
 
-    state = {
+    constructor() {
+        super()
+        this.state = {
+        }
+        this.handleRestart = this.handleRestart.bind(this);
+
+    }
+    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/k9jkog04/';
+
+    componentDidMount() {
+
     }
 
     handleRestart() {
-        this.props.history.push('/game')
-
+        this.props.history.push('/characterlog')
     }
 
-    componentDidMount() {
-        this.props.finishGame(this.props.data.userID, this.props.data.killCount)
-    }
 
     render() {
+        // console.log("render array")
+        // console.log(this.props.data.arrayCount)
         const data01 =
-            // [this.props.data.arrayCount];
-            [
-                { name: 'Ending 1', value: 5 },
-                { name: 'Ending 2', value: 8 },
-                { name: 'Ending 3', value: 10 },
-                { name: 'Ending 4', value: 9 },
-                { name: 'Ending 5', value: 3 },
-                { name: 'Ending 6', value: 1 },
-            ];
-
+            [this.props.data.arrayCount];
         return (
             <div>
                 <div>
@@ -77,5 +62,4 @@ class Endgame extends Component {
         )
     }
 }
-
 export default withRouter(Endgame)

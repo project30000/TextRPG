@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import {withRouter} from "react-router";
+
 
 
 
@@ -33,17 +35,17 @@ class LoginForm extends Component {
                 password: this.state.password
             })
             .then(response => {
-                console.log('login response: ')
-                console.log(response)
                 if (response.status === 200) {
+                    console.log(response.data)
                     // update App.js state
                     this.props.updateUser({
                         loggedIn: true,
-                        username: response.data.username
+                        username: response.data.username,
+                        
                     })
                     // update the state to redirect to home
                     this.setState({
-                        redirectTo: '/'
+                        redirectTo: '/characterlog'
                     })
                 }
             }).catch(error => {
@@ -108,4 +110,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm
+export default withRouter(LoginForm)

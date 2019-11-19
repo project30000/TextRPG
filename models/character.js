@@ -4,12 +4,12 @@ const Schema = mongoose.Schema
 
 // Define userSchema
 const characterSchema = new Schema({
-    name: { type: String, required:true},
+    name: { type: String, required:true, unique: true},
     // str: { type: Boolean,required: true},
     // dex:{ type: Boolean,required: true },
     // int: { type: Boolean,required: true },
     // char: { type: Boolean,required: true},
-    user_id: [{type: Schema.Types.ObjectId, ref: "User"}],
+    user_id: [{type: Schema.Types.ObjectId, ref: "User", required: true}],
     killCount: {type: Number, default: 0}
 
 

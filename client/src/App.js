@@ -12,6 +12,7 @@ import Stats from './components/Stats';
 import Endgame from './pages/Endgame';
 import {withRouter} from 'react-router'
 import { Domain } from 'domain';
+import CharacterLog from './pages/CharacterLog';
 
 class App extends Component {
   // constructor() {
@@ -31,26 +32,29 @@ class App extends Component {
       loggedIn: false,
       username: null,
       userId: null,
-      killCount: 0,
-      character: null,
-      characterId: null,
       userAverage: null,
       arrayCount: null,
+      killCount: 0,
+      character: null,
     }
 
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
     this.updateUser = this.updateUser.bind(this)
+    this.finishGame = this.finishGame.bind(this)
   }
 
 
   componentDidMount() {
     this.getUser()
+    
   }
+
 
   updateUser=(userObject)=>{
     this.setState(userObject)
   }
+
 
   getUser=()=>{
     axios.get('/user/').then(response => {
@@ -76,27 +80,15 @@ class App extends Component {
   }
 
   // on submit --> initializing game 
-  submitCharacter=()=>{
-    //state is current user's username 
-    this.setState({
-      killCount: 0,
-      character: "", // from forum 
+  submitCharacter=(character)=>{
+    this.setState ({
+      character: character,
+
     })
-
-    //first post to database, attaching the logged-in account/state username with it 
-    axios.post('/characters/' + this.state.userId + "/" + this.state.character, {
-      name: this.state.character //grab value from form // ,
-    }).then(
-      data => {
-        var characterDataId;
-        axios.get('/characters/' + this.state.userId + "/" + this.state.character).then(response => {
-          characterDataId = response.data._id
-          this.setState({
-            characterId: characterDataId,
-          })
-        })
-
-      })
+    axios.post('/characters/' + character, {
+      name: character //grab value from form // ,
+    })
+    this.props.history.push('/game')
 
   }
 
@@ -109,22 +101,24 @@ class App extends Component {
     })
   }
 
-  //posting deathcount into scores
-  postingDeathCount=(id, killCount)=>{
-    axios.put('characters/'+ id + "/" + this.state.character + "/" + killCount)
-  }
+  // //posting deathcount into scores
+  // postingDeathCount=(killCount)=>{
+   
+  //   axios.put('characters/' + this.state.character + "/" + killCount)
+  // }
 
 
 
-  finishGame=(userId, killCount)=>{  
-    this.postingDeathCount(userId, killCount)
+  finishGame=(killCount)=>{  
     // display killcount (this.state.killCount)
     console.log("CURRENT DEATH COUNT: " + killCount)
+    axios.put('characters/' + this.state.character + "/" + killCount)
+    
 
     // display users average killcount
     var userAverage = 0
     console.log("finishGame is hit")
-    axios.get('users/' + userId).then(response => {
+    axios.get('userscore/').then(response => {
       for (var i = 0; i < response.data.length ; i++) {
         var kc = parseInt(response.data[i].killCount)
         console.log(kc)
@@ -137,40 +131,41 @@ class App extends Component {
       })
 
     })
-   
-
 
   //number of people per ending
   
    var zeroNumber = 0;
    var oneNumber = 0;
    var twoNumber = 0;
-   var threeNumber = 0;
-   var fourNumber = 0;
-   var fiveNumber =0;
+  //  var threeNumber = 0;
+  //  var fourNumber = 0;
+  //  var fiveNumber =0;
     axios.get('characters').then(response => {
       for (var i = 0; i < response.data.length ; i++) {
         var kc = parseInt(response.data[i].killCount)
-        if (kc = 0) {
+        console.log(kc)
+        if (kc === 0) {
           zeroNumber++
-        } else if (kc = 1) {
+        } else if (kc === 1) {
           oneNumber++
-        } else if (kc = 2) {
+        } else if (kc === 2) {
           twoNumber++
-        } else if (kc = 3) {
-          threeNumber++
-        } else if (kc = 4) {
-          fourNumber++
-        } else if (kc = 5) {
-          fiveNumber++
         }
+        // } else if (kc = 3) {
+        //   threeNumber++
+        // } else if (kc = 4) {
+        //   fourNumber++
+        // } else if (kc = 5) {
+        //   fiveNumber++
+        // }
       }
-      var arrayCount = [zeroNumber, oneNumber, twoNumber, threeNumber, fourNumber, fiveNumber]
+      // var arrayCount = [zeroNumber, oneNumber, twoNumber, threeNumber, fourNumber, fiveNumber]
+      var arrayCount = [zeroNumber, oneNumber, twoNumber]
       console.log("ARRAY OF PPL WITH SCORES: " + arrayCount)
       this.setState({
         arrayCount: arrayCount, 
       })
-      // this.props.history.push('/endgame')
+      this.props.history.push('/endgame')
 
     })
 
@@ -213,6 +208,7 @@ class App extends Component {
           render={() =>
             <Game
               incrementDeath={this.incrementDeath}
+              finishGame={this.finishGame}
               data={this.state}
             />}
         />
@@ -222,11 +218,19 @@ class App extends Component {
           render={() =>
             <Endgame
               data={this.state}
-              finishGame={this.finishGame}
-
             />
           }
         />
+
+          <Route 
+          path="/characterlog"
+          render={() =>
+            <CharacterLog
+              submitCharacter={this.submitCharacter}
+              data={this.state}
+            />
+          }
+        />  
       
       </div>
       
