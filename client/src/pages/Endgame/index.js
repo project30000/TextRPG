@@ -34,14 +34,12 @@ class Endgame extends Component {
 
 
     render() {
-        console.log("render array")
-        console.log(this.props.data.arrayCount)
-       
         const data01 =
             [
-                { name: "Ending 1", value: 1},
-                { name: "Ending 2", value: 1 },
-                { name: "Ending 3", value: 2 }
+                { name: "Ending 1 (no violence)", value: this.props.data.array1},
+                { name: "Ending 2 (one violent incident)", value: this.props.data.array2},
+                { name: "Ending 3 (multiple violent incidents)", value: this.props.data.array3}
+
             ]
         return (
             <div>

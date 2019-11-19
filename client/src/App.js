@@ -163,7 +163,9 @@ class App extends Component {
       var arrayCount = [zeroNumber, oneNumber, twoNumber]
       console.log("ARRAY OF PPL WITH SCORES: " + arrayCount)
       this.setState({
-        arrayCount: arrayCount, 
+        array1: arrayCount[0], 
+        array2: arrayCount[1], 
+        array3: arrayCount[2], 
       })
       this.props.history.push('/endgame')
 
