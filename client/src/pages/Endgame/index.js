@@ -51,6 +51,7 @@ class Endgame extends Component {
                 <br />
                 <div><Stats data={this.props.data} /></div>
                 <p>How your score compared to other users:</p>
+                <p> {this.props.data.arrayCount}</p>
                 <div className="cenPi"><PieChart width={400} height={400}>
                     <Pie
                         dataKey="value"
@@ -59,7 +60,7 @@ class Endgame extends Component {
                         cx={200} cy={200}
                         outerRadius={150} fill="#228B22"
                         label />
-                    </PieChart>
+                        </PieChart>
                     <Tooltip />
                 </div >
             </div >
