@@ -19,6 +19,9 @@ class CharacterLog extends Component {
 
     }
     componentDidMount() {
+        console.log("kill Count : " + this.props.data.killCount)
+        this.props.data.killCount = 0;
+        console.log("kill Count : " + this.props.data.killCount)
     }
     handleSubmit = () => {
         console.log('handleSubmit')
