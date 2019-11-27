@@ -1,10 +1,12 @@
+
+
 # TextRPG
 //explaination of game app
 
 ## Getting Started
 
 Link to the repository-<br>
-Link to Heroku deployemnt
+Link to Heroku deployemnt: https://vast-peak-78938.herokuapp.com/
 
 ### Prerequisites
 
