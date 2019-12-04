@@ -21,7 +21,7 @@
   }
   
   .textee {
-    color: #666666;
+    color: #666666 !important;
     font-family: 'Play', sans-serif;
   font-size: large;
 

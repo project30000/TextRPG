@@ -10,8 +10,12 @@
   }
    */
 
-   *{
+   /* *{
      color:white;
+   } */
+   p, h4, label {
+     color:white !important;
+  
    }
 
  .container {
