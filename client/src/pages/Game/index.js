@@ -5,7 +5,7 @@ import dialog from './dialog.json';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
 import { withRouter } from "react-router";
-import axios from"axios";
+import axios from "axios";
 
 
 class Game extends Component {
@@ -17,9 +17,10 @@ class Game extends Component {
         killCount: 0,
     }
 
-    handleClick = (nextText, op, end) => {
+    handleClick = (nextText, op, end, endingScore) => {
         if (end === true) {
-            this.props.finishGame(this.props.data.killCount)
+            console.log("endingScore: on click" + endingScore)
+            this.props.finishGame(endingScore)
             this.props.history.push('/endgame')
         }
         if (op === true) {
@@ -28,19 +29,19 @@ class Game extends Component {
         this.setState({
             currentLine: dialog[nextText]
         })
+       
     }
 
-    getCharacter=()=> {
-    axios.get('/characters/' + this.props.data.character).then(response => {
-        let character=response.data.name;
-        let characterId=response.data._id;
+    getCharacter = () => {
+        axios.get('/characters/' + this.props.data.character).then(response => {
+            let character = response.data.name;
+            let characterId = response.data._id;
 
-        this.setState({
-          character: character,
-          characterId: characterId,
-        }, () =>
-        console.log(this.state));
-    })
+            this.setState({
+                character: character,
+                characterId: characterId,
+            })
+        })
     }
 
     componentDidMount() {
@@ -67,7 +68,7 @@ class Game extends Component {
                             < Button
                                 option={option.text}
                                 nextText={option.nextText}
-                                handleClick={this.handleClick.bind("click", option.nextText, option.kill, option.end)}
+                                handleClick={this.handleClick.bind("click", option.nextText, option.kill, option.end, option.endingScore)}
                             />
                         ))
                     }

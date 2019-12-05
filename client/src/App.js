@@ -111,21 +111,19 @@ class App extends Component {
 
   finishGame = (killCount) => {
     // display killcount (this.state.killCount)
-    console.log("CURRENT DEATH COUNT: " + killCount)
+    this.setState({
+      killCount: killCount
+    })
     axios.put('characters/' + this.state.character + "/" + killCount)
-
 
     // display users average killcount
     var userAverage = 0
-    console.log("finishGame is hit")
     axios.get('userscore/').then(response => {
       for (var i = 0; i < response.data.length; i++) {
         var kc = parseInt(response.data[i].killCount)
-        console.log(kc)
         userAverage = userAverage + kc;
       }
       userAverage = userAverage / response.data.length
-      console.log("YOUR AVERAGE DEATH COUNT: " + userAverage)
       this.setState({
         userAverage: userAverage
       })
@@ -137,35 +135,26 @@ class App extends Component {
     var zeroNumber = 0;
     var oneNumber = 0;
     var twoNumber = 0;
-    //  var threeNumber = 0;
-    //  var fourNumber = 0;
-    //  var fiveNumber =0;
+    var threeNumber = 0;
     axios.get('characters').then(response => {
       for (var i = 0; i < response.data.length; i++) {
         var kc = parseInt(response.data[i].killCount)
-        console.log(kc)
         if (kc === 0) {
           zeroNumber++
         } else if (kc === 1) {
           oneNumber++
         } else if (kc === 2) {
           twoNumber++
+        } else if (kc === 3) {
+          threeNumber++
         }
-        // } else if (kc = 3) {
-        //   threeNumber++
-        // } else if (kc = 4) {
-        //   fourNumber++
-        // } else if (kc = 5) {
-        //   fiveNumber++
-        // }
       }
-      // var arrayCount = [zeroNumber, oneNumber, twoNumber, threeNumber, fourNumber, fiveNumber]
-      var arrayCount = [zeroNumber, oneNumber, twoNumber]
-      console.log("ARRAY OF PPL WITH SCORES: " + arrayCount)
+      var arrayCount = [zeroNumber, oneNumber, twoNumber, threeNumber]
       this.setState({
         array1: arrayCount[0],
         array2: arrayCount[1],
         array3: arrayCount[2],
+        array4: arrayCount[3],
       })
       this.props.history.push('/endgame')
 

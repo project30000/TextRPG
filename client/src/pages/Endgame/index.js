@@ -36,12 +36,14 @@ class Endgame extends Component {
     render() {
         const data02 =
             [
-                { name: "Ending 1 (no violence)", value: this.props.data.array1 },
-                { name: "Ending 2 (one violent incident)", value: this.props.data.array2 },
-                { name: "Ending 3 (multiple violent incidents)", value: this.props.data.array3 }
+                { name: "Ending 1 (passive stuck)", value: this.props.data.array1 },
+                { name: "Ending 2 (aggressive stuck)", value: this.props.data.array2 },
+                { name: "Ending 3 (paradox escape)", value: this.props.data.array3 },
+                { name: "Ending 4 (unplug escape)", value: this.props.data.array4 }
+
 
             ]
-       
+
         return (
             <div>
                 <div>
@@ -50,7 +52,10 @@ class Endgame extends Component {
                     </Link>
                 </div>
                 <br />
-                <div><Stats data={this.props.data} /></div>
+                <div>  
+                    <Stats data={this.props.data} />
+
+                </div>
                 <p>How your score compared to other users:</p>
                 <p> {this.props.data.arrayCount}    </p>
                 {/* <div className="cenPi">
@@ -73,6 +78,11 @@ class Endgame extends Component {
                         <Tooltip />
                     </PieChart>
                 </div>
+                <br /> 
+                <br /> 
+                <br /> 
+                <br /> 
+
             </div >
         )
     }

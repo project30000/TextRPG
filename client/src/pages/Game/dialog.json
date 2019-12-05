@@ -563,12 +563,14 @@
             {
                 "text": "End.",
                 "killcount": 1,
-                "end": true
+                "end": true,
+                "endingScore": 3
             },
             {
                 "text": "End.",
                 "killcount": 2,
-                "end": true
+                "end": true,
+                "endingScore": 3
             }
         ]
     },
@@ -595,17 +597,20 @@
             {
                 "text": "See your score.",
                 "killcount": 0,
-                "end": true
+                "end": true,
+                "endingScore": 0
             },
             {
                 "text": "See your score.",
                 "killcount": 1,
-                "end": true
+                "end": true,
+                "endingScore": 0
             },
             {
                 "text": "See your score.",
                 "killcount": 2,
-                "end": true
+                "end": true,
+                "endingScore": 0
             }
         ]
     },
@@ -642,17 +647,21 @@
             {
                 "text": "See your score.",
                 "killcount": 0,
-                "end": true
+                "end": true,
+                "endingScore": 1
+                
             },
             {
                 "text": "See your score.",
                 "killcount": 1,
-                "end": true
+                "end": true,
+                "endingScore": 1
             },
             {
                 "text": "See your score.",
                 "killcount": 2,
-                "end": true
+                "end": true,
+                "endingScore": 1
             }
         ]
     },
@@ -663,17 +672,20 @@
             {
                 "text": "See your score.",
                 "killcount": 0,
-                "end": true
+                "end": true,
+                "endingScore": 2
             },
             {
                 "text": "See your score.",
                 "killcount": 1,
-                "end": true
+                "end": true,
+                "endingScore": 2
             },
             {
                 "text": "See your score.",
                 "killcount": 2,
-                "end": true
+                "end": true,
+                "endingScore": 2
             }
         ]
     }
