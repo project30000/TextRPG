@@ -44,7 +44,7 @@
   font-family: 'Josefin Sans', sans-serif;
    border-radius: 10px;
    padding: 5px 10px;
-   color: white;
+   /* color: white; */
    outline: none;
    margin: 20px;
  }
