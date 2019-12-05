@@ -35,19 +35,17 @@ class Signup extends Component {
 				console.log(response)
 				if (!response.data.errmsg) {
 					console.log('successful signup')
-					// this.setState({ //redirect to login page
-					// 	redirectTo: '/login'
-					// })
-					if (response.status === 200) {
-						// update App.js state
-						this.props.updateUser({
-							loggedIn: true,
-							username: response.data.username
-						})
-						// update the state to redirect to home
-						// window.location.assign('/')
-						this.props.history.push('/characterlog')
-					}
+					this.props.history.push('/login')
+					// if (response.status === 200) {
+					// 	// update App.js state
+					// 	// this.props.updateUser({
+					// 	// 	loggedIn: true,
+					// 	// 	username: response.data.username
+					// 	// })
+					// 	// update the state to redirect to home
+					// 	// window.location.assign('/')
+					// 	this.props.history.push('/characterlog')
+					// }
 					
 				} else {
 					console.log('username already taken')
