@@ -45,9 +45,10 @@ class Signup extends Component {
 							username: response.data.username
 						})
 						// update the state to redirect to home
-						window.location.assign('/')
+						// window.location.assign('/')
+						this.props.history.push('/characterlog')
 					}
-					this.props.history.push('/characterlog')
+					
 				} else {
 					console.log('username already taken')
 				}

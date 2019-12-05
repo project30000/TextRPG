@@ -10,7 +10,7 @@ import Home from './pages/Home'
 import { parse } from 'path';
 import Stats from './components/Stats';
 import Endgame from './pages/Endgame';
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
 import { Domain } from 'domain';
 import CharacterLog from './pages/CharacterLog';
 
@@ -47,16 +47,16 @@ class App extends Component {
 
   componentDidMount() {
     this.getUser()
-    
+
   }
 
 
-  updateUser=(userObject)=>{
+  updateUser = (userObject) => {
     this.setState(userObject)
   }
 
 
-  getUser=()=>{
+  getUser = () => {
     axios.get('/user/').then(response => {
       console.log('Get user response: ')
       console.log(response.data)
@@ -80,8 +80,8 @@ class App extends Component {
   }
 
   // on submit --> initializing game 
-  submitCharacter=(character)=>{
-    this.setState ({
+  submitCharacter = (character) => {
+    this.setState({
       character: character,
 
     })
@@ -93,8 +93,8 @@ class App extends Component {
   }
 
   //incrementing deathKill
-  incrementDeath=(killCount)=> {
-    killCount +=1
+  incrementDeath = (killCount) => {
+    killCount += 1
     //just add one to killcount
     this.setState({
       killCount: killCount,
@@ -103,28 +103,28 @@ class App extends Component {
 
   // //posting deathcount into scores
   // postingDeathCount=(killCount)=>{
-   
+
   //   axios.put('characters/' + this.state.character + "/" + killCount)
   // }
 
 
 
-  finishGame=(killCount)=>{  
+  finishGame = (killCount) => {
     // display killcount (this.state.killCount)
     console.log("CURRENT DEATH COUNT: " + killCount)
     axios.put('characters/' + this.state.character + "/" + killCount)
-    
+
 
     // display users average killcount
     var userAverage = 0
     console.log("finishGame is hit")
     axios.get('userscore/').then(response => {
-      for (var i = 0; i < response.data.length ; i++) {
+      for (var i = 0; i < response.data.length; i++) {
         var kc = parseInt(response.data[i].killCount)
         console.log(kc)
         userAverage = userAverage + kc;
       }
-      userAverage = userAverage/response.data.length
+      userAverage = userAverage / response.data.length
       console.log("YOUR AVERAGE DEATH COUNT: " + userAverage)
       this.setState({
         userAverage: userAverage
@@ -132,16 +132,16 @@ class App extends Component {
 
     })
 
-  //number of people per ending
-  
-   var zeroNumber = 0;
-   var oneNumber = 0;
-   var twoNumber = 0;
-  //  var threeNumber = 0;
-  //  var fourNumber = 0;
-  //  var fiveNumber =0;
+    //number of people per ending
+
+    var zeroNumber = 0;
+    var oneNumber = 0;
+    var twoNumber = 0;
+    //  var threeNumber = 0;
+    //  var fourNumber = 0;
+    //  var fiveNumber =0;
     axios.get('characters').then(response => {
-      for (var i = 0; i < response.data.length ; i++) {
+      for (var i = 0; i < response.data.length; i++) {
         var kc = parseInt(response.data[i].killCount)
         console.log(kc)
         if (kc === 0) {
@@ -163,17 +163,17 @@ class App extends Component {
       var arrayCount = [zeroNumber, oneNumber, twoNumber]
       console.log("ARRAY OF PPL WITH SCORES: " + arrayCount)
       this.setState({
-        array1: arrayCount[0], 
-        array2: arrayCount[1], 
-        array3: arrayCount[2], 
+        array1: arrayCount[0],
+        array2: arrayCount[1],
+        array3: arrayCount[2],
       })
       this.props.history.push('/endgame')
 
     })
 
-  
+
   }
-  
+
 
 
 
@@ -181,7 +181,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
         {this.state.loggedIn}
@@ -189,10 +189,10 @@ class App extends Component {
         {/* /* Routes to different components */}
         <Route
           exact path="/"
-          component={Home} 
-          />
-          
-          
+          component={Home}
+        />
+
+
         <Route
           path="/login"
           render={() =>
@@ -203,7 +203,9 @@ class App extends Component {
         <Route
           path="/signup"
           render={() =>
-            <Signup />}
+            <Signup
+              updateUser={this.updateUser}
+            />}
         />
         <Route
           path="/game"
@@ -215,7 +217,7 @@ class App extends Component {
             />}
         />
 
-        <Route 
+        <Route
           path="/endgame"
           render={() =>
             <Endgame
@@ -224,7 +226,7 @@ class App extends Component {
           }
         />
 
-          <Route 
+        <Route
           path="/characterlog"
           render={() =>
             <CharacterLog
@@ -232,10 +234,10 @@ class App extends Component {
               data={this.state}
             />
           }
-        />  
-      
+        />
+
       </div>
-      
+
     );
   }
 }
