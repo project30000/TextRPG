@@ -11,6 +11,7 @@ class Signup extends Component {
 			username: '',
 			password: '',
 			confirmPassword: '',
+			continue: false,
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -35,18 +36,32 @@ class Signup extends Component {
 				console.log(response)
 				if (!response.data.errmsg) {
 					console.log('successful signup')
-					this.props.history.push('/login')
+					axios.post('/user/login', {
+						username: this.state.username,
+						password: this.state.password
+					}).then(response => {
+						if (response.status === 200) {
+							console.log(response.data)
+							// update App.js state
+							this.props.updateUser({
+								loggedIn: true,
+								username: response.data.username,
+
+							})
+							this.props.history.push('/characterlog')
+						}
+					})
 					// if (response.status === 200) {
-					// 	// update App.js state
-					// 	// this.props.updateUser({
-					// 	// 	loggedIn: true,
-					// 	// 	username: response.data.username
-					// 	// })
+					// // 	// update App.js state
+					// // 	// this.props.updateUser({
+					// // 	// 	loggedIn: true,
+					// // 	// 	username: response.data.username
+					// 	}
 					// 	// update the state to redirect to home
 					// 	// window.location.assign('/')
 					// 	this.props.history.push('/characterlog')
 					// }
-					
+
 				} else {
 					console.log('username already taken')
 				}
