@@ -44,7 +44,7 @@ class CharacterLog extends Component {
                         </div>
                         <div className="col-3 col-mr-auto">
                             <input className="form-input"         
-                                placeholder="i.e. Aljozy the Barbarian" 
+                                placeholder="i.e. Alojzy the Barbarian" 
                                 type="text"
                                 name="character"
                                 value={this.state.character} 
