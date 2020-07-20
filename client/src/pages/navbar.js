@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import '../App.css';
-import axios from 'axios'
+import axios from 'axios';
+import logo from '../images/crabbie.jpg'
 
 
 class Navbar extends Component {
@@ -37,9 +38,9 @@ class Navbar extends Component {
                 <header className="navbar App-header" id="nav-container">
                     <div className="col-2" >
                         {loggedIn ? (
-
                             <section className="navbar-section">
                                 <div className="col-4 col-mr-auto">
+
                                     <div id="top-filler"></div>
                                     {/* <img src={logo} className="App-logo" alt="logo" /> */}
                                     <h1 className="App-title">Digital Crab</h1>
@@ -49,27 +50,28 @@ class Navbar extends Component {
                                 </Link>
                                 <Link to="/login" className="btn btn-link text-secondary" onClick={this.logout}>
                                     <span className="text-secondary">logout</span></Link>
-
                             </section>
                         ) : (
                                 <section className="navbar-section">
                                     <div className="col-4 col-mr-auto">
                                         {/* <div id="top-filler"></div> */}
                                         {/* <img src={logo} className="App-logo" alt="logo" /> */}
+
                                         <h1 className="App-title">Digital Crab</h1>
                                     </div>
-                                    <Link to="/login" className="btn btn-link text-secondary">
-                                    <button className="btnShaken">Login</button>
-                                    </Link>
-                                    <Link to="/signup" className="btn btn-link">
-                                    <button className="btnShake">sign up!</button>
-                                    </Link>
+                                    <div className="buttonBox">
+                                        <Link to="/login" className="btn btn-link text-secondary">
+                                            <button className="btnShaken">Login</button>
+                                        </Link>
+                                        <Link to="/signup" className="btn btn-link">
+                                            <button className="btnShake">Sign Up!</button>
+                                        </Link></div>
                                 </section>
                             )}
                     </div>
 
                 </header>
-                
+
             </div>
 
         );

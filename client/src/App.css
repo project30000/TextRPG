@@ -1,15 +1,21 @@
+.buttonBox {
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  padding: 10px;
+}
+
 .btnShake {
-  background-color: #111111;
+  background-color: #000;
   color: #ffffff;
-  border-color: #111111;
-  border-radius: 8px;
+  border-color: #000;
 }
 
 .btnShaken {
-  background-color: #111111;
+  background-color: #000;
   color: purple;
-  border-color: #111111;
-  border-radius: 10px;
+  border-color: #000;
+  
 }
 
 .btnShake:hover {
